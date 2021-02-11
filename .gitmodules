@@ -1,0 +1,6 @@
+[submodule "Calculate-Video-DVD-Disc-Id"]
+	path = Calculate-Video-DVD-Disc-Id
+	url = https://github.com/DJDoena/Calculate-Video-DVD-Disc-Id.git
+[submodule "PluginInterface"]
+	path = PluginInterface
+	url = https://github.com/DJDoena/PluginInterface.git
