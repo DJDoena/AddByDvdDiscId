@@ -8,8 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
-{
+namespace DoenaSoft.DVDProfiler.AddByDvdDiscId {
     using System;
     
     
@@ -40,7 +39,7 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DoenaSoft.DVDProfiler.InitializeTVShowChildProfiles.Texts", typeof(Texts).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DoenaSoft.DVDProfiler.AddByDvdDiscId.Texts", typeof(Texts).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -62,9 +61,27 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This plugin helps you to copy the data from the parent profile into the child profiles.
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        internal static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check for Updates.
+        /// </summary>
+        internal static string CheckForUpdates {
+            get {
+                return ResourceManager.GetString("CheckForUpdates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This plugin allows you to create a profile by DVD disc ID using the original algorithm.
         ///
-        ///You&apos;ll find the plugin in the menu &quot;DVD&quot; under &quot;Initialize TVShow Child Profiles&quot;..
+        ///You&apos;ll find the plugin in the menu &quot;DVD&quot; under &quot;Add by DVD Disc ID&quot;..
         /// </summary>
         internal static string PluginDescription {
             get {
@@ -73,7 +90,7 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Initialize TVShow Child Profiles.
+        ///   Looks up a localized string similar to Add by DVD Disc ID.
         /// </summary>
         internal static string PluginName {
             get {
@@ -87,6 +104,15 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
         internal static string PluginUrl {
             get {
                 return ResourceManager.GetString("PluginUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://www.invelos.com/Forums.aspx?task=viewtopic&amp;topicID=926221&amp;PageNum=1.
+        /// </summary>
+        internal static string ThreadUrl {
+            get {
+                return ResourceManager.GetString("ThreadUrl", resourceCulture);
             }
         }
     }

@@ -8,5 +8,7 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
     public class DefaultValues
     {
         public int SelectedLocality;
+
+        public string SelectedDrive;
     }
 }

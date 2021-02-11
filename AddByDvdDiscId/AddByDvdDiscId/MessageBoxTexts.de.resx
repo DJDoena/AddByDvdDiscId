@@ -123,27 +123,18 @@
 A log file was created under "{1}". Please send it to karsten@yajirobi.de.</value>
   </data>
   <data name="CriticalErrorHeader" xml:space="preserve">
-    <value>Critical Error</value>
+    <value>Schwerwiegender Fehler</value>
   </data>
   <data name="DecrypterRunning" xml:space="preserve">
-    <value>There is a copy-protection decrypter such as Any DVD or PassKey running. This could change the disc ID. Please disable this program and try again!</value>
-  </data>
-  <data name="Done" xml:space="preserve">
-    <value>Done.</value>
-  </data>
-  <data name="DoneWithNumber" xml:space="preserve">
-    <value>Done. {0} profiles were {1}.</value>
-  </data>
-  <data name="ErrorHeader" xml:space="preserve">
-    <value>Error</value>
+    <value>Es läuft ein Kopierschutz-Entschlüsselungsprogramm wie Any DVD oder PassKey. Dies könnte die Disc ID ändern. Bitte dieses Programm deaktivieren und erneut versuchen!</value>
   </data>
   <data name="FileCantBeRead" xml:space="preserve">
-    <value>"{0}" can't be read.
+    <value>"{0}" kann nicht gelesen werden.
 
 {1}</value>
   </data>
   <data name="FileCantBeWritten" xml:space="preserve">
-    <value>"{0}" can't be written.
+    <value>"{0}" kann nicht geschrieben werden.
 
 {1}</value>
   </data>
@@ -151,12 +142,12 @@ A log file was created under "{1}". Please send it to karsten@yajirobi.de.</valu
     <value>Information</value>
   </data>
   <data name="NoDriveFound" xml:space="preserve">
-    <value>No DVD drive was found!</value>
+    <value>Es wurde kein DVD-Laufwerk gefunden!</value>
   </data>
   <data name="NoProfilerLocalityFound" xml:space="preserve">
-    <value>The DVD Profiler file 'localities.xod' could not be read!</value>
+    <value>Die DVD Profiler Datei 'localities.xod' konnte nicht gelesen werden!</value>
   </data>
   <data name="WarningHeader" xml:space="preserve">
-    <value>Warning</value>
+    <value>Warnung</value>
   </data>
 </root>

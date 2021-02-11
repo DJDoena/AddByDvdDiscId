@@ -128,4 +128,13 @@ You'll find the plugin in the menu "DVD" under "Add by DVD Disc ID".</value>
   <data name="PluginUrl" xml:space="preserve">
     <value>http://doena-journal.net/en/dvd-profiler-tools/</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>Check for Updates</value>
+  </data>
+  <data name="ThreadUrl" xml:space="preserve">
+    <value>http://www.invelos.com/Forums.aspx?task=viewtopic&amp;topicID=926221&amp;PageNum=1</value>
+  </data>
 </root>

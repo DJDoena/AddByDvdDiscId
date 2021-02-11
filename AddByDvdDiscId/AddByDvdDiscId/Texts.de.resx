@@ -117,46 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CriticalError" xml:space="preserve">
-    <value>{0}
+  <data name="About" xml:space="preserve">
+    <value>Über</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>Auf Updates überprüfen</value>
+  </data>
+  <data name="PluginDescription" xml:space="preserve">
+    <value>Dieses Plugin erlaubt es, ein Profil basierend auf der DVD-Disc-Id mit dem ursprünglichen Algorithmus zu erstellen.
 
-A log file was created under "{1}". Please send it to karsten@yajirobi.de.</value>
-  </data>
-  <data name="CriticalErrorHeader" xml:space="preserve">
-    <value>Critical Error</value>
-  </data>
-  <data name="DecrypterRunning" xml:space="preserve">
-    <value>There is a copy-protection decrypter such as Any DVD or PassKey running. This could change the disc ID. Please disable this program and try again!</value>
-  </data>
-  <data name="Done" xml:space="preserve">
-    <value>Done.</value>
-  </data>
-  <data name="DoneWithNumber" xml:space="preserve">
-    <value>Done. {0} profiles were {1}.</value>
-  </data>
-  <data name="ErrorHeader" xml:space="preserve">
-    <value>Error</value>
-  </data>
-  <data name="FileCantBeRead" xml:space="preserve">
-    <value>"{0}" can't be read.
-
-{1}</value>
-  </data>
-  <data name="FileCantBeWritten" xml:space="preserve">
-    <value>"{0}" can't be written.
-
-{1}</value>
-  </data>
-  <data name="InformationHeader" xml:space="preserve">
-    <value>Information</value>
-  </data>
-  <data name="NoDriveFound" xml:space="preserve">
-    <value>No DVD drive was found!</value>
-  </data>
-  <data name="NoProfilerLocalityFound" xml:space="preserve">
-    <value>The DVD Profiler file 'localities.xod' could not be read!</value>
-  </data>
-  <data name="WarningHeader" xml:space="preserve">
-    <value>Warning</value>
+Man findet das Plugin im Menü DVD unter "Add by DVD Disc ID".</value>
   </data>
 </root>

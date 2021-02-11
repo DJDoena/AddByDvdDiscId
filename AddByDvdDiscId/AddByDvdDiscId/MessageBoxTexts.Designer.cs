@@ -8,8 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
-{
+namespace DoenaSoft.DVDProfiler.AddByDvdDiscId {
     using System;
     
     
@@ -40,7 +39,7 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DoenaSoft.DVDProfiler.InitializeTVShowChildProfiles.MessageBoxTexts", typeof(MessageBoxTexts).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DoenaSoft.DVDProfiler.AddByDvdDiscId.MessageBoxTexts", typeof(MessageBoxTexts).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -82,11 +81,29 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There is a copy-protection decrypter such as Any DVD or PassKey running. This could change the disc ID. Please disable this program and try again!.
+        /// </summary>
+        internal static string DecrypterRunning {
+            get {
+                return ResourceManager.GetString("DecrypterRunning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Done..
         /// </summary>
         internal static string Done {
             get {
                 return ResourceManager.GetString("Done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Done. {0} profiles were {1}..
+        /// </summary>
+        internal static string DoneWithNumber {
+            get {
+                return ResourceManager.GetString("DoneWithNumber", resourceCulture);
             }
         }
         
@@ -127,6 +144,24 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
         internal static string InformationHeader {
             get {
                 return ResourceManager.GetString("InformationHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No DVD drive was found!.
+        /// </summary>
+        internal static string NoDriveFound {
+            get {
+                return ResourceManager.GetString("NoDriveFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The DVD Profiler file &apos;localities.xod&apos; could not be read!.
+        /// </summary>
+        internal static string NoProfilerLocalityFound {
+            get {
+                return ResourceManager.GetString("NoProfilerLocalityFound", resourceCulture);
             }
         }
         
