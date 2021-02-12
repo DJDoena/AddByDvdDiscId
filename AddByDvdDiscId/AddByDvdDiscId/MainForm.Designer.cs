@@ -29,53 +29,95 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Button RefreshDrivesButton;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.Button AddDiscButton;
+            System.Windows.Forms.Label DriveLabel;
+            System.Windows.Forms.Label LocalityLabel;
+            System.Windows.Forms.Button AbortButton;
             this.LocalityComboBox = new System.Windows.Forms.ComboBox();
             this.DriveComboBox = new System.Windows.Forms.ComboBox();
-            this.RefreshDrivesButton = new System.Windows.Forms.Button();
+            this.UpdateFromOnlineDatabaseCheckBox = new System.Windows.Forms.CheckBox();
+            RefreshDrivesButton = new System.Windows.Forms.Button();
+            AddDiscButton = new System.Windows.Forms.Button();
+            DriveLabel = new System.Windows.Forms.Label();
+            LocalityLabel = new System.Windows.Forms.Label();
+            AbortButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // RefreshDrivesButton
+            // 
+            resources.ApplyResources(RefreshDrivesButton, "RefreshDrivesButton");
+            RefreshDrivesButton.Name = "RefreshDrivesButton";
+            RefreshDrivesButton.UseVisualStyleBackColor = true;
+            RefreshDrivesButton.Click += new System.EventHandler(this.OnRefreshDrivesButtonClick);
+            // 
+            // AddDiscButton
+            // 
+            resources.ApplyResources(AddDiscButton, "AddDiscButton");
+            AddDiscButton.Name = "AddDiscButton";
+            AddDiscButton.UseVisualStyleBackColor = true;
+            AddDiscButton.Click += new System.EventHandler(this.OnAddDiscButtonClick);
+            // 
+            // DriveLabel
+            // 
+            resources.ApplyResources(DriveLabel, "DriveLabel");
+            DriveLabel.Name = "DriveLabel";
+            // 
+            // LocalityLabel
+            // 
+            resources.ApplyResources(LocalityLabel, "LocalityLabel");
+            LocalityLabel.Name = "LocalityLabel";
+            // 
+            // AbortButton
+            // 
+            AbortButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(AbortButton, "AbortButton");
+            AbortButton.Name = "AbortButton";
+            AbortButton.UseVisualStyleBackColor = true;
+            AbortButton.Click += new System.EventHandler(this.OnAbortButtonClick);
             // 
             // LocalityComboBox
             // 
             this.LocalityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.LocalityComboBox.FormattingEnabled = true;
-            this.LocalityComboBox.Location = new System.Drawing.Point(135, 111);
+            resources.ApplyResources(this.LocalityComboBox, "LocalityComboBox");
             this.LocalityComboBox.Name = "LocalityComboBox";
-            this.LocalityComboBox.Size = new System.Drawing.Size(203, 21);
-            this.LocalityComboBox.TabIndex = 0;
             // 
             // DriveComboBox
             // 
             this.DriveComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DriveComboBox.FormattingEnabled = true;
-            this.DriveComboBox.Location = new System.Drawing.Point(135, 63);
+            resources.ApplyResources(this.DriveComboBox, "DriveComboBox");
             this.DriveComboBox.Name = "DriveComboBox";
-            this.DriveComboBox.Size = new System.Drawing.Size(203, 21);
-            this.DriveComboBox.TabIndex = 1;
             // 
-            // RefreshDrivesButton
+            // UpdateFromOnlineDatabaseCheckBox
             // 
-            this.RefreshDrivesButton.Location = new System.Drawing.Point(344, 63);
-            this.RefreshDrivesButton.Name = "RefreshDrivesButton";
-            this.RefreshDrivesButton.Size = new System.Drawing.Size(75, 23);
-            this.RefreshDrivesButton.TabIndex = 2;
-            this.RefreshDrivesButton.Text = "Refresh";
-            this.RefreshDrivesButton.UseVisualStyleBackColor = true;
-            this.RefreshDrivesButton.Click += new System.EventHandler(this.OnRefreshDrivesButtonClick);
+            resources.ApplyResources(this.UpdateFromOnlineDatabaseCheckBox, "UpdateFromOnlineDatabaseCheckBox");
+            this.UpdateFromOnlineDatabaseCheckBox.Checked = true;
+            this.UpdateFromOnlineDatabaseCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.UpdateFromOnlineDatabaseCheckBox.Name = "UpdateFromOnlineDatabaseCheckBox";
+            this.UpdateFromOnlineDatabaseCheckBox.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AcceptButton = AddDiscButton;
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.RefreshDrivesButton);
+            this.CancelButton = AbortButton;
+            this.Controls.Add(AbortButton);
+            this.Controls.Add(LocalityLabel);
+            this.Controls.Add(DriveLabel);
+            this.Controls.Add(this.UpdateFromOnlineDatabaseCheckBox);
+            this.Controls.Add(AddDiscButton);
+            this.Controls.Add(RefreshDrivesButton);
             this.Controls.Add(this.DriveComboBox);
             this.Controls.Add(this.LocalityComboBox);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "Add by DVD Disc ID";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnFormFormClosed);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -83,6 +125,6 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
 
         private System.Windows.Forms.ComboBox LocalityComboBox;
         private System.Windows.Forms.ComboBox DriveComboBox;
-        private System.Windows.Forms.Button RefreshDrivesButton;
+        private System.Windows.Forms.CheckBox UpdateFromOnlineDatabaseCheckBox;
     }
 }

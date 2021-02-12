@@ -1,8 +1,8 @@
-using System;
-using System.Runtime.InteropServices;
-
 namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
 {
+    using System;
+    using System.Runtime.InteropServices;
+
     [ComVisible(false)]
     [Serializable]
     public class Settings

@@ -1,20 +1,20 @@
-﻿using System.Diagnostics;
-using DoenaSoft.DVDProfiler.DVDProfilerXML.Version400.Localities;
-
-namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
+﻿namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
 {
+    using System.Diagnostics;
+    using DVDProfilerXML.Version400.Localities;
+
     [DebuggerDisplay("{Description}")]
     internal sealed class LocalityViewModel
     {
-        private readonly Locality _locality;
+        public Locality Locality { get; }
 
-        public int Id => _locality.ID;
+        public int Id => Locality.ID;
 
-        public string Description => _locality.Description;
+        public string Description => Locality.Description;
 
         public LocalityViewModel(Locality locality)
         {
-            _locality = locality;
+            Locality = locality;
         }
     }
 }

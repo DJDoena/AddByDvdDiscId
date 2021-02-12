@@ -7,3 +7,6 @@
 [submodule "DVDProfilerXML"]
 	path = DVDProfilerXML
 	url = https://github.com/DJDoena/DVDProfilerXML.git
+[submodule "AbstractionLayer"]
+	path = AbstractionLayer
+	url = https://github.com/DJDoena/AbstractionLayer.git

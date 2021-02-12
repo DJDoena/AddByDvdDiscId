@@ -108,6 +108,15 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The drive &apos;{0}&apos; cannot be read!.
+        /// </summary>
+        internal static string DriveNotReady {
+            get {
+                return ResourceManager.GetString("DriveNotReady", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         internal static string ErrorHeader {
@@ -157,11 +166,38 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There does not appear to be a Video DVD in drive &apos;{0}&apos;!.
+        /// </summary>
+        internal static string NoDvdInDrive {
+            get {
+                return ResourceManager.GetString("NoDvdInDrive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The DVD Profiler file &apos;localities.xod&apos; could not be read!.
         /// </summary>
         internal static string NoProfilerLocalityFound {
             get {
                 return ResourceManager.GetString("NoProfilerLocalityFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A profile for the disc {0} ({1}) already exists!.
+        /// </summary>
+        internal static string ProfileAlreadyExists {
+            get {
+                return ResourceManager.GetString("ProfileAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title must not be empty!.
+        /// </summary>
+        internal static string TitleIsEmpty {
+            get {
+                return ResourceManager.GetString("TitleIsEmpty", resourceCulture);
             }
         }
         

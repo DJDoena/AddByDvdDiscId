@@ -1,42 +1,22 @@
-﻿using System.Diagnostics;
-using System.IO;
-
-namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
+﻿namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
 {
+    using System.Diagnostics;
+    using AbstractionLayer.IOServices;
+
     [DebuggerDisplay("{Description}")]
     internal sealed class DriveViewModel
     {
-        private readonly DriveInfo _drive;
+        public IDriveInfo Drive { get; }
 
-        public string Id => _drive.Name;
+        public string Id => Drive.DriveLetter;
 
-        public bool IsReady => _drive.IsReady;
+        public bool IsReady => Drive.IsReady;
 
-        public string Description
+        public string Description => Drive.DriveLabel;
+
+        public DriveViewModel(IDriveInfo drive)
         {
-            get
-            {
-                try
-                {
-                    if (IsReady)
-                    {
-                        return $"{Id} [ {_drive.VolumeLabel} ]";
-                    }
-                    else
-                    {
-                        return Id;
-                    }
-                }
-                catch
-                {
-                    return Id;
-                }
-            }
-        }
-
-        public DriveViewModel(DriveInfo drive)
-        {
-            _drive = drive;
+            Drive = drive;
         }
     }
 }

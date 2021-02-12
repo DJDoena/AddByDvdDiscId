@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{85326760
 		AddByDvdDiscId\AddByDvdDiscIdSetup\Setup.iss = AddByDvdDiscId\AddByDvdDiscIdSetup\Setup.iss
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractionLayer", "AbstractionLayer\AbstractionLayer\AbstractionLayer.csproj", "{491B235A-1D56-4732-B491-338A3DD2246D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -58,6 +60,14 @@ Global
 		{2E90CC6F-892E-45B3-8812-EE52FFA3B222}.Release|x64.Build.0 = Release|x64
 		{2E90CC6F-892E-45B3-8812-EE52FFA3B222}.Release|x86.ActiveCfg = Release|x86
 		{2E90CC6F-892E-45B3-8812-EE52FFA3B222}.Release|x86.Build.0 = Release|x86
+		{491B235A-1D56-4732-B491-338A3DD2246D}.Debug|x64.ActiveCfg = Debug|x64
+		{491B235A-1D56-4732-B491-338A3DD2246D}.Debug|x64.Build.0 = Debug|x64
+		{491B235A-1D56-4732-B491-338A3DD2246D}.Debug|x86.ActiveCfg = Debug|x86
+		{491B235A-1D56-4732-B491-338A3DD2246D}.Debug|x86.Build.0 = Debug|x86
+		{491B235A-1D56-4732-B491-338A3DD2246D}.Release|x64.ActiveCfg = Release|x64
+		{491B235A-1D56-4732-B491-338A3DD2246D}.Release|x64.Build.0 = Release|x64
+		{491B235A-1D56-4732-B491-338A3DD2246D}.Release|x86.ActiveCfg = Release|x86
+		{491B235A-1D56-4732-B491-338A3DD2246D}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +76,7 @@ Global
 		{DE78E209-FE25-497E-A3D0-0D958C1EFE08} = {621EB36C-F5F1-4F79-9D3F-16323CC9C8A9}
 		{461DACCA-8EBF-4C03-AD1A-C438E4EB3B36} = {621EB36C-F5F1-4F79-9D3F-16323CC9C8A9}
 		{2E90CC6F-892E-45B3-8812-EE52FFA3B222} = {621EB36C-F5F1-4F79-9D3F-16323CC9C8A9}
+		{491B235A-1D56-4732-B491-338A3DD2246D} = {621EB36C-F5F1-4F79-9D3F-16323CC9C8A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4E3D316C-FDE8-420C-90BB-6F060164ECDE}

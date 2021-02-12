@@ -128,4 +128,7 @@
 
 Man findet das Plugin im Menü DVD unter "Add by DVD Disc ID".</value>
   </data>
+  <data name="PluginUrl" xml:space="preserve">
+    <value>http://doena-journal.net/dvd-profiler-tools/</value>
+  </data>
 </root>

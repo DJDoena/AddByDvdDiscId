@@ -117,49 +117,51 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CriticalError" xml:space="preserve">
-    <value>{0}
-
-A log file was created under "{1}". Please send it to karsten@yajirobi.de.</value>
+  <data name="RefreshDrivesButton.Text" xml:space="preserve">
+    <value>Aktualisieren</value>
   </data>
-  <data name="CriticalErrorHeader" xml:space="preserve">
-    <value>Schwerwiegender Fehler</value>
+  <data name="AddDiscButton.Text" xml:space="preserve">
+    <value>Füge Disc hinzu</value>
   </data>
-  <data name="DecrypterRunning" xml:space="preserve">
-    <value>Es läuft ein Kopierschutz-Entschlüsselungsprogramm wie Any DVD oder PassKey. Dies könnte die Disc ID ändern. Bitte dieses Programm deaktivieren und erneut versuchen!</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="DriveLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 13</value>
   </data>
-  <data name="DriveNotReady" xml:space="preserve">
-    <value>Das Laufwerk '{0}' kann nicht gelesen werden</value>
+  <data name="DriveLabel.Text" xml:space="preserve">
+    <value>Laufwerk</value>
   </data>
-  <data name="FileCantBeRead" xml:space="preserve">
-    <value>"{0}" kann nicht gelesen werden.
-
-{1}</value>
+  <data name="LocalityLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 13</value>
   </data>
-  <data name="FileCantBeWritten" xml:space="preserve">
-    <value>"{0}" kann nicht geschrieben werden.
-
-{1}</value>
+  <data name="LocalityLabel.Text" xml:space="preserve">
+    <value>Land</value>
   </data>
-  <data name="InformationHeader" xml:space="preserve">
-    <value>Information</value>
+  <data name="AbortButton.Text" xml:space="preserve">
+    <value>Schließen</value>
   </data>
-  <data name="NoDriveFound" xml:space="preserve">
-    <value>Es wurde kein DVD-Laufwerk gefunden!</value>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAIAICAQAAAABADoAgAAJgAAABAQEAAAAAQAKAEAAA4DAAAoAAAAIAAAAEAAAAABAAQAAAAAAAAC
+        AAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAgAAAgAAAAICAAIAAAACAAIAAgIAAAICAgADAwMAAAAD/AAD/
+        AAAA//8A/wAAAP8A/wD//wAA////AIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiI
+        iIiIiIiIiIiIiIiIiIiIiIiIiIgAAACIiIiIiIiIiIiIiIiAAAAACIiIiIiIiIiIiIiIAAAAAACIiIiI
+        iIiIiIiIiAAIiIAACIiIiIiIiIiIiIgACIiIAAiIiIiIiIiIiIiIiIiIiAAIiIiIiIiIiIiIiIiAAAAA
+        CIiIiIiIiIiIiIiIAAAAAIiIiIiIiIiIiIiIgAAAAAiIiIiIiIiIiIiIiIAAiIiIiIiIiIiIiIiIiIiA
+        AIiIiIiIiIiAAAAIiIiIiAAIiIiIiIiAAAAAAAiIiIgAAAAAiIiIgAAAAAAAiIiIgAAAAIiIiIAAiIgA
+        AIiIiIgAAAiIiIiAAIiIgAAIiIiIiIiIiIiIgACIiIgACIiIiIiIiIiIiIAAiIiIAAiIiIiIiIiIiIiA
+        AIiIiAAIiIiIiIiIiIiIgACIiIAACIiIiIiIiIiIiIAAiIiAAIiIiIiIiIiIiIiAAIiAAAiIiIiIiIiI
+        iIiIgACAAACIiIiIiIiIiIiIiIAAAAAIiIiIiIiIiIiIiIiAAACIiIiIiIiIiIiIiIiIgACIiIiIiIiI
+        iIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAoAAAAEAAAACAAAAABAAQAAAAAAIAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAgAAAgAAAAICAAIAA
+        AACAAIAAgIAAAMDAwACAgIAAAAD/AAD/AAAA//8A/wAAAP8A/wD//wAA////AHd3d3d3d3d3d3d3d3AA
+        B3d3d3d3AAAAB3d3d3cHd3AHd3d3d3cAAAd3d3d3cAAAd3d3d3dwB3d3cAAHd3cAAHdwAAB3d3AAd3AH
+        cAd3d3d3cAdwB3d3d3dwB3AHd3d3d3AHAHd3d3d3cAAAd3d3d3dwAHd3d3d3d3d3d3d3d3d3AAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+</value>
   </data>
-  <data name="NoDvdInDrive" xml:space="preserve">
-    <value>Es scheint sich keine Video-DVD im Laufwerk '{0}' zu befinden!</value>
-  </data>
-  <data name="NoProfilerLocalityFound" xml:space="preserve">
-    <value>Die DVD Profiler Datei 'localities.xod' konnte nicht gelesen werden!</value>
-  </data>
-  <data name="ProfileAlreadyExists" xml:space="preserve">
-    <value>Ein Profile für die Disc {0} ({1}) existiert bereits!</value>
-  </data>
-  <data name="TitleIsEmpty" xml:space="preserve">
-    <value>Der Titel darf nicht leer sein!</value>
-  </data>
-  <data name="WarningHeader" xml:space="preserve">
-    <value>Warnung</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Hinzufügen via Disc-ID</value>
   </data>
 </root>

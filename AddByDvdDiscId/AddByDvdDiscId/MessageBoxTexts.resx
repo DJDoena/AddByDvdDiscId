@@ -134,6 +134,9 @@ A log file was created under "{1}". Please send it to karsten@yajirobi.de.</valu
   <data name="DoneWithNumber" xml:space="preserve">
     <value>Done. {0} profiles were {1}.</value>
   </data>
+  <data name="DriveNotReady" xml:space="preserve">
+    <value>The drive '{0}' cannot be read!</value>
+  </data>
   <data name="ErrorHeader" xml:space="preserve">
     <value>Error</value>
   </data>
@@ -153,8 +156,17 @@ A log file was created under "{1}". Please send it to karsten@yajirobi.de.</valu
   <data name="NoDriveFound" xml:space="preserve">
     <value>No DVD drive was found!</value>
   </data>
+  <data name="NoDvdInDrive" xml:space="preserve">
+    <value>There does not appear to be a Video DVD in drive '{0}'!</value>
+  </data>
   <data name="NoProfilerLocalityFound" xml:space="preserve">
     <value>The DVD Profiler file 'localities.xod' could not be read!</value>
+  </data>
+  <data name="ProfileAlreadyExists" xml:space="preserve">
+    <value>A profile for the disc {0} ({1}) already exists!</value>
+  </data>
+  <data name="TitleIsEmpty" xml:space="preserve">
+    <value>Title must not be empty!</value>
   </data>
   <data name="WarningHeader" xml:space="preserve">
     <value>Warning</value>
