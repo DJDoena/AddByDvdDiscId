@@ -24,7 +24,7 @@
 
         private readonly IDVDInfo _parentProfile;
 
-        private IDVDInfo _profile;
+        internal IDVDInfo NewProfile { get; private set; }
 
         private UI.IUIServices UIServices => _serviceProvider.UIServices;
 
@@ -83,13 +83,15 @@
             {
                 try
                 {
-                    Api.GetOnlineProfileByID(out _profile, _profileId);
+                    Api.GetOnlineProfileByID(out var profile, _profileId);
+
+                    NewProfile = profile;
                 }
                 catch
                 { }
             }
 
-            if (_profile == null)
+            if (NewProfile == null)
             {
                 InitProfile();
             }
@@ -97,36 +99,36 @@
 
         private void InitProfile()
         {
-            _profile = Api.CreateDVD();
+            NewProfile = Api.CreateDVD();
 
-            _profile.SetProfileID(_profileId);
+            NewProfile.SetProfileID(_profileId);
 
-            _profile.SetProfileTimestamp(DateTime.Now);
+            NewProfile.SetProfileTimestamp(DateTime.Now);
 
-            _profile.SetChangesMadeIndicator(true);
-            _profile.SetContributableChangesMade(true);
+            NewProfile.SetChangesMadeIndicator(true);
+            NewProfile.SetContributableChangesMade(true);
 
-            _profile.SetCollectionType(PluginConstants.COLLTYPE_Owned);
-            _profile.SetRegionByID(_locality.DVDRegion, true);
-            _profile.SetMediaTypes(true, false, false, false);
+            NewProfile.SetCollectionType(PluginConstants.COLLTYPE_Owned);
+            NewProfile.SetRegionByID(_locality.DVDRegion, true);
+            NewProfile.SetMediaTypes(true, false, false, false);
 
             if (GetNtscCountries().Any(c => c.Equals(_locality.Description)))
             {
-                _profile.SetVideoStandard(PluginConstants.VIDSTD_NTSC);
+                NewProfile.SetVideoStandard(PluginConstants.VIDSTD_NTSC);
             }
             else
             {
-                _profile.SetVideoStandard(PluginConstants.VIDSTD_PAL);
+                NewProfile.SetVideoStandard(PluginConstants.VIDSTD_PAL);
             }
 
             try
             {
                 Api.GetInfoOnlineProfileID(_profileId, out var title, out _, out var edition, out _, out _, out _, out _, out _, out _, out _, out _);
 
-                _profile.SetTitle(title);
-                _profile.SetSortTitle(title);
+                NewProfile.SetTitle(title);
+                NewProfile.SetSortTitle(title);
 
-                _profile.SetEdition(edition);
+                NewProfile.SetEdition(edition);
             }
             catch
             { }
@@ -134,18 +136,18 @@
 
         private void InitForm()
         {
-            TitleTextBox.Text = _profile.GetTitle();
-            EditionTextBox.Text = _profile.GetEdition();
-            SortTitleTextBox.Text = _profile.GetSortTitle();
+            TitleTextBox.Text = NewProfile.GetTitle();
+            EditionTextBox.Text = NewProfile.GetEdition();
+            SortTitleTextBox.Text = NewProfile.GetSortTitle();
 
-            Region1CheckBox.Checked = _profile.GetRegionByID(1);
-            Region2CheckBox.Checked = _profile.GetRegionByID(2);
-            Region3CheckBox.Checked = _profile.GetRegionByID(3);
-            Region4CheckBox.Checked = _profile.GetRegionByID(4);
-            Region5CheckBox.Checked = _profile.GetRegionByID(5);
-            Region6CheckBox.Checked = _profile.GetRegionByID(6);
+            Region1CheckBox.Checked = NewProfile.GetRegionByID(1);
+            Region2CheckBox.Checked = NewProfile.GetRegionByID(2);
+            Region3CheckBox.Checked = NewProfile.GetRegionByID(3);
+            Region4CheckBox.Checked = NewProfile.GetRegionByID(4);
+            Region5CheckBox.Checked = NewProfile.GetRegionByID(5);
+            Region6CheckBox.Checked = NewProfile.GetRegionByID(6);
 
-            if (_profile.GetVideoStandard() == PluginConstants.VIDSTD_NTSC)
+            if (NewProfile.GetVideoStandard() == PluginConstants.VIDSTD_NTSC)
             {
                 VideoStandardNtscRadioButton.Checked = true;
             }
@@ -237,47 +239,47 @@
                 return;
             }
 
-            _profile.SetTitle(TitleTextBox.Text);
-            _profile.SetEdition(EditionTextBox.Text);
+            NewProfile.SetTitle(TitleTextBox.Text);
+            NewProfile.SetEdition(EditionTextBox.Text);
 
             if (!string.IsNullOrWhiteSpace(SortTitleTextBox.Text))
             {
-                _profile.SetSortTitle(SortTitleTextBox.Text);
+                NewProfile.SetSortTitle(SortTitleTextBox.Text);
             }
             else
             {
-                _profile.SetSortTitle(TitleTextBox.Text);
+                NewProfile.SetSortTitle(TitleTextBox.Text);
             }
 
-            _profile.SetRegionByID(1, Region1CheckBox.Checked);
-            _profile.SetRegionByID(2, Region2CheckBox.Checked);
-            _profile.SetRegionByID(3, Region3CheckBox.Checked);
-            _profile.SetRegionByID(4, Region4CheckBox.Checked);
-            _profile.SetRegionByID(5, Region5CheckBox.Checked);
-            _profile.SetRegionByID(6, Region6CheckBox.Checked);
+            NewProfile.SetRegionByID(1, Region1CheckBox.Checked);
+            NewProfile.SetRegionByID(2, Region2CheckBox.Checked);
+            NewProfile.SetRegionByID(3, Region3CheckBox.Checked);
+            NewProfile.SetRegionByID(4, Region4CheckBox.Checked);
+            NewProfile.SetRegionByID(5, Region5CheckBox.Checked);
+            NewProfile.SetRegionByID(6, Region6CheckBox.Checked);
 
             if (VideoStandardNtscRadioButton.Checked)
             {
-                _profile.SetVideoStandard(PluginConstants.VIDSTD_NTSC);
+                NewProfile.SetVideoStandard(PluginConstants.VIDSTD_NTSC);
             }
             else
             {
-                _profile.SetVideoStandard(PluginConstants.VIDSTD_PAL);
+                NewProfile.SetVideoStandard(PluginConstants.VIDSTD_PAL);
             }
 
-            _profile.SetPurchaseDate(PurchaseDatePicker.Value.Date);
+            NewProfile.SetPurchaseDate(PurchaseDatePicker.Value.Date);
 
             if (NoCollectionNumberCheckBox.Checked)
             {
-                _profile.SetCollectionNumber("-1");
+                NewProfile.SetCollectionNumber("-1");
             }
             else if (CollectionNumberUpDown.Value == 0)
             {
-                _profile.SetCollectionNumber(string.Empty);
+                NewProfile.SetCollectionNumber(string.Empty);
             }
             else
             {
-                _profile.SetCollectionNumber(((int)CollectionNumberUpDown.Value).ToString());
+                NewProfile.SetCollectionNumber(((int)CollectionNumberUpDown.Value).ToString());
             }
 
             if (CreateDiscContentCheckBox.Checked)
@@ -285,9 +287,9 @@
                 CreateDiscContent();
             }
 
-            _profile.SetCountAs((int)CountAsUpDown.Value);
+            NewProfile.SetCountAs((int)CountAsUpDown.Value);
 
-            Api.SaveDVDToCollection(_profile);
+            Api.SaveDVDToCollection(NewProfile);
 
             if (DefaultValues.DownloadProfile)
             {
@@ -322,9 +324,9 @@
         {
             var hasDisc = false;
 
-            for (var discIndex = 0; discIndex < _profile.GetDiscCount(); discIndex++)
+            for (var discIndex = 0; discIndex < NewProfile.GetDiscCount(); discIndex++)
             {
-                _profile.GetDiscByIndex(discIndex, out _, out _, out _, out _, out var discIdSideA, out var discIdSideB, out _, out _, out _, out _);
+                NewProfile.GetDiscByIndex(discIndex, out _, out _, out _, out _, out var discIdSideA, out var discIdSideB, out _, out _, out _, out _);
 
                 if (_discId.Equals(discIdSideA) || _discId.Equals(discIdSideB))
                 {
@@ -340,7 +342,7 @@
                 {
                     Api.GetDiscIDFromDrive(_drive.RootFolder, out _, out var isDualLayered);
 
-                    _profile.AddDisc("Main Feature", string.Empty, _drive.VolumeLabel, string.Empty, _discId, string.Empty, isDualLayered, false, string.Empty, string.Empty);
+                    NewProfile.AddDisc("Main Feature", string.Empty, _drive.VolumeLabel, string.Empty, _discId, string.Empty, isDualLayered, false, string.Empty, string.Empty);
                 }
                 catch
                 { }

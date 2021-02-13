@@ -28,6 +28,8 @@
 
         private readonly IDVDInfo _parentProfile;
 
+        private List<IDVDInfo> _allProfiles;
+
         public MainForm(ServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
@@ -268,7 +270,17 @@
 
             Application.DoEvents();
 
-            var discId = DvdDiscIdCalculator.Calculate(drive.DriveLetter);
+            string discId;
+            try
+            {
+                discId = DvdDiscIdCalculator.Calculate(drive.DriveLetter);
+            }
+            catch
+            {
+                UIServices.ShowMessageBox(string.Format(MessageBoxTexts.DriveNotReady, drive.DriveLetter), MessageBoxTexts.WarningHeader, UI.Buttons.OK, UI.Icon.Warning);
+
+                return;
+            }
 
             var suffix = locality.ID > 0
                 ? $".{locality.ID}"
@@ -292,12 +304,15 @@
             }
             else
             {
-                var profiles = profileIds.Select(id =>
+                if (_allProfiles == null)
                 {
-                    Api.DVDByProfileID(out var profile, id, 0, 0);
+                    _allProfiles = profileIds.Select(id =>
+                    {
+                        Api.DVDByProfileID(out var profile, id, 0, 0);
 
-                    return profile;
-                }).ToList();
+                        return profile;
+                    }).ToList();
+                }
 
                 DefaultValues.DownloadProfile = UpdateFromOnlineDatabaseCheckBox.Checked;
 
@@ -307,11 +322,13 @@
 
                 Cursor = previousCursor;
 
-                using (var form = new AddDiscForm(_serviceProvider, locality, profileId, discId, drive, parentProfile, profiles, formattedDiscId))
+                using (var form = new AddDiscForm(_serviceProvider, locality, profileId, discId, drive, parentProfile, _allProfiles, formattedDiscId))
                 {
                     if (form.ShowDialog() == DialogResult.OK)
                     {
                         profileIds.Add(profileId);
+
+                        _allProfiles.Add(form.NewProfile);
                     }
                 }
             }

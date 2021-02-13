@@ -108,7 +108,7 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The drive &apos;{0}&apos; cannot be read!.
+        ///   Looks up a localized string similar to The drive &apos;{0}&apos; cannot be read..
         /// </summary>
         internal static string DriveNotReady {
             get {
@@ -157,7 +157,7 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No DVD drive was found!.
+        ///   Looks up a localized string similar to No DVD drive was found..
         /// </summary>
         internal static string NoDriveFound {
             get {
@@ -166,7 +166,7 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There does not appear to be a Video DVD in drive &apos;{0}&apos;!.
+        ///   Looks up a localized string similar to There does not appear to be a Video DVD in drive &apos;{0}&apos;..
         /// </summary>
         internal static string NoDvdInDrive {
             get {
@@ -175,7 +175,7 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The DVD Profiler file &apos;localities.xod&apos; could not be read!.
+        ///   Looks up a localized string similar to The DVD Profiler file &apos;localities.xod&apos; could not be read..
         /// </summary>
         internal static string NoProfilerLocalityFound {
             get {
@@ -184,7 +184,7 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A profile for the disc {0} ({1}) already exists!.
+        ///   Looks up a localized string similar to A profile for the disc {0} ({1}) already exists..
         /// </summary>
         internal static string ProfileAlreadyExists {
             get {
@@ -193,7 +193,7 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Title must not be empty!.
+        ///   Looks up a localized string similar to Title must not be empty..
         /// </summary>
         internal static string TitleIsEmpty {
             get {
