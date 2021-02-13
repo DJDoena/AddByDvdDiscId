@@ -20,17 +20,21 @@
 
         private IIOServices IOServices => _serviceProvider.IOServices;
 
-        private IDVDProfilerAPI Api => _serviceProvider.ProfilerApi;
+        private IDVDProfilerAPI Api => _serviceProvider.Api;
 
         private IEnumerable<Locality> Localities => _serviceProvider.Localities;
 
         private DefaultValues DefaultValues => _serviceProvider.DefaultValues;
+
+        private readonly IDVDInfo _parentProfile;
 
         public MainForm(ServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
 
             InitializeComponent();
+
+            Icon = Properties.Resources.DJDSOFT;
 
             UpdateFromOnlineDatabaseCheckBox.Checked = DefaultValues.DownloadProfile;
 
@@ -44,6 +48,10 @@
             if (failure)
             {
                 Load += (s, e) => Close();
+            }
+            else
+            {
+                _parentProfile = InitializeParentProfile();
             }
         }
 
@@ -128,7 +136,6 @@
             }
         }
 
-
         private bool CheckDecrypterRunning()
         {
             var anyDVDs = Process.GetProcessesByName("AnyDVD");
@@ -147,6 +154,27 @@
             }
         }
 
+        private IDVDInfo InitializeParentProfile()
+        {
+            var displayedProfile = Api.GetDisplayedDVD();
+
+            IDVDInfo parentProfile = null;
+
+            if (displayedProfile != null)
+            {
+                Api.DVDByProfileID(out parentProfile, displayedProfile.GetProfileID(), PluginConstants.DATASEC_AllSections, -1);
+
+                AddAsChildCheckBox.Enabled = true;
+                AddAsChildCheckBox.Checked = DefaultValues.AddAsChild;
+            }
+            else
+            {
+                AddAsChildCheckBox.Enabled = false;
+                AddAsChildCheckBox.Checked = false;
+            }
+
+            return parentProfile;
+        }
 
         private void OnFormFormClosed(object sender, FormClosedEventArgs e)
         {
@@ -155,6 +183,11 @@
             TrySaveLocality();
 
             DefaultValues.DownloadProfile = UpdateFromOnlineDatabaseCheckBox.Checked;
+
+            if (AddAsChildCheckBox.Enabled)
+            {
+                DefaultValues.AddAsChild = AddAsChildCheckBox.Checked;
+            }
         }
 
         private void OnRefreshDrivesButtonClick(object sender, EventArgs e)
@@ -245,23 +278,36 @@
 
             var profileIds = ((object[])Api.GetAllProfileIDs()).Cast<string>().ToList();
 
-            var existingProfile = profileIds.FirstOrDefault(id => profileId.Equals(id));
+            var existingProfileId = profileIds.FirstOrDefault(id => profileId.Equals(id));
 
             var formattedDiscId = FormatDiscId(discId);
 
-            Cursor = previousCursor;
-
-            if (!string.IsNullOrEmpty(existingProfile))
+            if (!string.IsNullOrEmpty(existingProfileId))
             {
                 Api.SelectDVDByProfileID(profileId);
+
+                Cursor = previousCursor;
 
                 UIServices.ShowMessageBox(string.Format(MessageBoxTexts.ProfileAlreadyExists, formattedDiscId, locality.Description), MessageBoxTexts.WarningHeader, UI.Buttons.OK, UI.Icon.Warning);
             }
             else
             {
+                var profiles = profileIds.Select(id =>
+                {
+                    Api.DVDByProfileID(out var profile, id, 0, 0);
+
+                    return profile;
+                }).ToList();
+
                 DefaultValues.DownloadProfile = UpdateFromOnlineDatabaseCheckBox.Checked;
 
-                using (var form = new AddDiscForm(_serviceProvider, profileIds, locality, profileId, discId, formattedDiscId, drive))
+                var parentProfile = AddAsChildCheckBox.Checked
+                    ? _parentProfile
+                    : null;
+
+                Cursor = previousCursor;
+
+                using (var form = new AddDiscForm(_serviceProvider, locality, profileId, discId, drive, parentProfile, profiles, formattedDiscId))
                 {
                     if (form.ShowDialog() == DialogResult.OK)
                     {

@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text;
     using System.Windows.Forms;
     using AbstractionLayer.IOServices;
     using DVDProfilerXML.Version400.Localities;
@@ -21,58 +22,38 @@
 
         private readonly IDriveInfo _drive;
 
+        private readonly IDVDInfo _parentProfile;
+
         private IDVDInfo _profile;
 
         private UI.IUIServices UIServices => _serviceProvider.UIServices;
 
-        private IDVDProfilerAPI Api => _serviceProvider.ProfilerApi;
+        private IDVDProfilerAPI Api => _serviceProvider.Api;
 
         private DefaultValues DefaultValues => _serviceProvider.DefaultValues;
 
-        public AddDiscForm(ServiceProvider serviceProvider, IEnumerable<string> profileIds, Locality locality, string profileId, string discId, string formattedDiscId, AbstractionLayer.IOServices.IDriveInfo drive)
+        public AddDiscForm(ServiceProvider serviceProvider, Locality locality, string profileId, string discId, IDriveInfo drive, IDVDInfo parentProfile, IEnumerable<IDVDInfo> profiles, string formattedDiscId)
         {
             _serviceProvider = serviceProvider;
             _locality = locality;
             _profileId = profileId;
             _discId = discId;
             _drive = drive;
+            _parentProfile = parentProfile;
 
             InitializeComponent();
+
+            Icon = Properties.Resources.DJDSOFT;
 
             Text = $"{Text}: {formattedDiscId} ({locality.Description})";
 
             DialogResult = DialogResult.None;
 
-            Load += (s, e) => OnAddDiscFormLoad(profileIds);
+            Load += (s, e) => OnAddDiscFormLoad(profiles);
         }
 
-        private void OnAddDiscFormLoad(IEnumerable<string> profileIds)
+        private void OnAddDiscFormLoad(IEnumerable<IDVDInfo> profiles)
         {
-            var previousCursor = Cursor;
-
-            try
-            {
-                LoadForm(profileIds);
-            }
-            finally
-            {
-                Cursor = previousCursor;
-            }
-        }
-
-        private void LoadForm(IEnumerable<string> profileIds)
-        {
-            Cursor = Cursors.WaitCursor;
-
-            Application.DoEvents();
-
-            var profiles = profileIds.Select(id =>
-            {
-                Api.DVDByProfileID(out var profile, id, 0, 0);
-
-                return profile;
-            }).ToList();
-
             CollectionNumberUpDown.Value = GetNextFreeNumber(profiles);
 
             LoadProfile();
@@ -80,7 +61,7 @@
             InitForm();
         }
 
-        private int GetNextFreeNumber(List<IDVDInfo> profiles)
+        private int GetNextFreeNumber(IEnumerable<IDVDInfo> profiles)
         {
             var collectionNumbers = profiles.Where(profile => profile.GetCollectionType() == PluginConstants.COLLTYPE_Owned).Select(profile => profile.GetCollectionNumber()).ToList();
 
@@ -137,6 +118,18 @@
             {
                 _profile.SetVideoStandard(PluginConstants.VIDSTD_PAL);
             }
+
+            try
+            {
+                Api.GetInfoOnlineProfileID(_profileId, out var title, out _, out var edition, out _, out _, out _, out _, out _, out _, out _, out _);
+
+                _profile.SetTitle(title);
+                _profile.SetSortTitle(title);
+
+                _profile.SetEdition(edition);
+            }
+            catch
+            { }
         }
 
         private void InitForm()
@@ -166,7 +159,7 @@
             CreateDiscContentCheckBox.Checked = DefaultValues.CreateDiscIdContent;
         }
 
-        private void OnNoCollectionNumberCheckBoxCheckedChanged(object sender, System.EventArgs e)
+        private void OnNoCollectionNumberCheckBoxCheckedChanged(object sender, EventArgs e)
         {
             if (NoCollectionNumberCheckBox.Checked)
             {
@@ -180,6 +173,8 @@
 
         private void OnTitleTextBoxTextChanged(object sender, EventArgs e)
         {
+            TitleTextBox.Text = GetWindows1252Text(TitleTextBox.Text);
+
             if (string.IsNullOrWhiteSpace(SortTitleTextBox.Text))
             {
                 SortTitleTextBox.Text = TitleTextBox.Text;
@@ -199,9 +194,38 @@
             }
         }
 
+        private void OnEditionTextBoxTextChanged(object sender, EventArgs e)
+        {
+            EditionTextBox.Text = GetWindows1252Text(EditionTextBox.Text);
+        }
+
+        private void OnSortTitleTextBoxTextChanged(object sender, EventArgs e)
+        {
+            SortTitleTextBox.Text = GetWindows1252Text(SortTitleTextBox.Text);
+        }
+
+        private static string GetWindows1252Text(string utfText)
+        {
+            var utf8Encoding = Encoding.UTF8;
+
+            var utfbytes = utf8Encoding.GetBytes(utfText);
+
+            var win1252Encoding = Encoding.GetEncoding(1252);
+
+            var win1252Bytes = Encoding.Convert(utf8Encoding, win1252Encoding, utfbytes);
+
+            var win1252Text = win1252Encoding.GetString(win1252Bytes);
+
+            return win1252Text;
+        }
+
+
         private void OnAddDiscFormFormClosed(object sender, FormClosedEventArgs e)
         {
-            DefaultValues.CreateDiscIdContent = CreateDiscContentCheckBox.Checked;
+            if (DialogResult == DialogResult.OK)
+            {
+                DefaultValues.CreateDiscIdContent = CreateDiscContentCheckBox.Checked;
+            }
         }
 
         private void OnAddDiscButtonClick(object sender, EventArgs e)
@@ -265,12 +289,22 @@
 
             Api.SaveDVDToCollection(_profile);
 
-            try
+            if (DefaultValues.DownloadProfile)
             {
-                Api.DownloadCoverImagesForProfileID(_profileId, string.Empty);
+                try
+                {
+                    Api.DownloadCoverImagesForProfileID(_profileId, string.Empty);
+                }
+                catch
+                { }
             }
-            catch
-            { }
+
+            if (_parentProfile != null)
+            {
+                _parentProfile.AddBoxSetContent(_profileId);
+
+                Api.SaveDVDToCollection(_parentProfile);
+            }
 
             Api.ClearAllFilters();
             Api.RequeryDatabase();
@@ -316,6 +350,8 @@
         private void OnAbortButtonClick(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
+
+            Close();
         }
 
         private static IEnumerable<string> GetNtscCountries()

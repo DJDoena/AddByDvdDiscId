@@ -38,6 +38,7 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
             this.LocalityComboBox = new System.Windows.Forms.ComboBox();
             this.DriveComboBox = new System.Windows.Forms.ComboBox();
             this.UpdateFromOnlineDatabaseCheckBox = new System.Windows.Forms.CheckBox();
+            this.AddAsChildCheckBox = new System.Windows.Forms.CheckBox();
             RefreshDrivesButton = new System.Windows.Forms.Button();
             AddDiscButton = new System.Windows.Forms.Button();
             DriveLabel = new System.Windows.Forms.Label();
@@ -99,12 +100,21 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
             this.UpdateFromOnlineDatabaseCheckBox.Name = "UpdateFromOnlineDatabaseCheckBox";
             this.UpdateFromOnlineDatabaseCheckBox.UseVisualStyleBackColor = true;
             // 
+            // AddAsChildCheckBox
+            // 
+            resources.ApplyResources(this.AddAsChildCheckBox, "AddAsChildCheckBox");
+            this.AddAsChildCheckBox.Checked = true;
+            this.AddAsChildCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.AddAsChildCheckBox.Name = "AddAsChildCheckBox";
+            this.AddAsChildCheckBox.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AcceptButton = AddDiscButton;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = AbortButton;
+            this.Controls.Add(this.AddAsChildCheckBox);
             this.Controls.Add(AbortButton);
             this.Controls.Add(LocalityLabel);
             this.Controls.Add(DriveLabel);
@@ -126,5 +136,6 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
         private System.Windows.Forms.ComboBox LocalityComboBox;
         private System.Windows.Forms.ComboBox DriveComboBox;
         private System.Windows.Forms.CheckBox UpdateFromOnlineDatabaseCheckBox;
+        private System.Windows.Forms.CheckBox AddAsChildCheckBox;
     }
 }

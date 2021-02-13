@@ -134,11 +134,13 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
             // 
             resources.ApplyResources(this.SortTitleTextBox, "SortTitleTextBox");
             this.SortTitleTextBox.Name = "SortTitleTextBox";
+            this.SortTitleTextBox.TextChanged += new System.EventHandler(this.OnSortTitleTextBoxTextChanged);
             // 
             // EditionTextBox
             // 
             resources.ApplyResources(this.EditionTextBox, "EditionTextBox");
             this.EditionTextBox.Name = "EditionTextBox";
+            this.EditionTextBox.TextChanged += new System.EventHandler(this.OnEditionTextBoxTextChanged);
             // 
             // TitleTextBox
             // 

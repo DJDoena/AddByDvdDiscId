@@ -12,15 +12,15 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
     [Guid(ClassGuid.ClassID)]
     public class Plugin : IDVDProfilerPlugin, IDVDProfilerPluginInfo
     {
-        private ServiceProvider _serviceProvider;
+        private const int AddMenuId = 1;
+
+        private readonly ServiceProvider _serviceProvider;
 
         private readonly string _errorFile;
 
         private readonly string _applicationPath;
 
         private readonly Version _pluginVersion;
-
-        private const int AddMenuId = 1;
 
         private string _addMenuToken = "";
 
@@ -32,7 +32,7 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
 
         private IUIServices UIServices => _serviceProvider.UIServices;
 
-        private IDVDProfilerAPI Api => _serviceProvider.ProfilerApi;
+        private IDVDProfilerAPI Api => _serviceProvider.Api;
 
         public Plugin()
         {
@@ -57,7 +57,7 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
 
         public void Load(IDVDProfilerAPI api)
         {
-            _serviceProvider.ProfilerApi = api;
+            _serviceProvider.Api = api;
 
             if (IOServices.Folder.Exists(_applicationPath) == false)
             {
@@ -106,7 +106,7 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
                 UIServices.ShowMessageBox(string.Format(MessageBoxTexts.FileCantBeWritten, _settingsFile, ex.Message), MessageBoxTexts.ErrorHeader, Buttons.OK, Icon.Error);
             }
 
-            _serviceProvider.ProfilerApi = null;
+            _serviceProvider.Api = null;
         }
 
         public void HandleEvent(int EventType, object EventData)
@@ -160,9 +160,9 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
 
         #endregion
 
-        private void HandleMenuClick(int MenuEventID)
+        private void HandleMenuClick(int menuEventID)
         {
-            switch (MenuEventID)
+            switch (menuEventID)
             {
                 case AddMenuId:
                     {

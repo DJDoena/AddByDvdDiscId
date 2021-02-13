@@ -14,5 +14,7 @@
         public bool DownloadProfile = true;
 
         public bool CreateDiscIdContent = true;
+
+        public bool AddAsChild = false;
     }
 }

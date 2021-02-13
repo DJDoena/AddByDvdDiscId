@@ -126,9 +126,6 @@
   <data name="&gt;&gt;AddDiscButton.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;Region2CheckBox.Parent" xml:space="preserve">
-    <value>RegionGroupBox</value>
-  </data>
   <data name="&gt;&gt;CreateDiscContentCheckBox.Parent" xml:space="preserve">
     <value>DiscsGrooupBox</value>
   </data>
@@ -138,10 +135,6 @@
   </data>
   <data name="SortTitleLabel.Text" xml:space="preserve">
     <value>Sort Title</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="CreateDiscContentCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 19</value>
   </data>
   <data name="Region3CheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -167,6 +160,7 @@
   <data name="Region4CheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="SortTitleTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>534, 20</value>
   </data>
@@ -197,9 +191,6 @@
   <data name="&gt;&gt;RegionGroupBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Region3CheckBox.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="&gt;&gt;VideoStandardNtscRadioButton.Name" xml:space="preserve">
     <value>VideoStandardNtscRadioButton</value>
   </data>
@@ -212,8 +203,8 @@
   <data name="SortTitleLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;NoCollectionNumberCheckBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="PurchaseDateLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;TitleTextBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -248,8 +239,8 @@
   <data name="VideoStandardGroupBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 186</value>
   </data>
-  <data name="&gt;&gt;CreateDiscContentCheckBox.Name" xml:space="preserve">
-    <value>CreateDiscContentCheckBox</value>
+  <data name="CreateDiscContentCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 19</value>
   </data>
   <data name="CountAsUpDown.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
@@ -272,6 +263,9 @@
   <data name="&gt;&gt;CountAsLabel.Name" xml:space="preserve">
     <value>CountAsLabel</value>
   </data>
+  <data name="&gt;&gt;CountAsUpDown.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="VideoStandardGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
@@ -293,17 +287,14 @@
   <data name="CollectionNumberLabel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;PurchaseInfoGroupBox.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="CollectionNumberUpDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 20</value>
   </data>
   <data name="&gt;&gt;AddDiscButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="CountAsUpDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>123, 71</value>
-  </data>
-  <data name="VideoStandardPalRadioButton.Text" xml:space="preserve">
-    <value>PAL</value>
+  <data name="&gt;&gt;TitleGroupBox.Name" xml:space="preserve">
+    <value>TitleGroupBox</value>
   </data>
   <data name="EditionLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>39, 13</value>
@@ -317,8 +308,8 @@
   <data name="&gt;&gt;TitleLabel.Parent" xml:space="preserve">
     <value>TitleGroupBox</value>
   </data>
-  <data name="&gt;&gt;AbortButton.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="TitleLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;PurchaseInfoGroupBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -326,20 +317,20 @@
   <data name="&gt;&gt;Region4CheckBox.Name" xml:space="preserve">
     <value>Region4CheckBox</value>
   </data>
+  <data name="&gt;&gt;CreateDiscContentCheckBox.Name" xml:space="preserve">
+    <value>CreateDiscContentCheckBox</value>
+  </data>
   <data name="&gt;&gt;CountAsLabel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="&gt;&gt;Region5CheckBox.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="TitleLabel.AutoSize" type="System.Boolean, mscorlib">
+  <data name="Region1CheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="RegionGroupBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 128</value>
-  </data>
-  <data name="&gt;&gt;Region5CheckBox.Name" xml:space="preserve">
-    <value>Region5CheckBox</value>
   </data>
   <data name="VideoStandardGroupBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>663, 52</value>
@@ -350,8 +341,8 @@
   <data name="VideoStandardNtscRadioButton.Text" xml:space="preserve">
     <value>NTSC</value>
   </data>
-  <data name="Region3CheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 17</value>
+  <data name="&gt;&gt;Region5CheckBox.Name" xml:space="preserve">
+    <value>Region5CheckBox</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="AbortButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -363,8 +354,8 @@
   <data name="TitleGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;PurchaseDatePicker.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="CountAsLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;CountAsUpDown.Name" xml:space="preserve">
     <value>CountAsUpDown</value>
@@ -405,28 +396,6 @@
   <data name="&gt;&gt;CountAsUpDown.Parent" xml:space="preserve">
     <value>PurchaseInfoGroupBox</value>
   </data>
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAABAAIAICAQAAAABADoAgAAJgAAABAQEAAAAAQAKAEAAA4DAAAoAAAAIAAAAEAAAAABAAQAAAAAAAAC
-        AAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAgAAAgAAAAICAAIAAAACAAIAAgIAAAICAgADAwMAAAAD/AAD/
-        AAAA//8A/wAAAP8A/wD//wAA////AIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiI
-        iIiIiIiIiIiIiIiIiIiIiIiIiIgAAACIiIiIiIiIiIiIiIiAAAAACIiIiIiIiIiIiIiIAAAAAACIiIiI
-        iIiIiIiIiAAIiIAACIiIiIiIiIiIiIgACIiIAAiIiIiIiIiIiIiIiIiIiAAIiIiIiIiIiIiIiIiAAAAA
-        CIiIiIiIiIiIiIiIAAAAAIiIiIiIiIiIiIiIgAAAAAiIiIiIiIiIiIiIiIAAiIiIiIiIiIiIiIiIiIiA
-        AIiIiIiIiIiAAAAIiIiIiAAIiIiIiIiAAAAAAAiIiIgAAAAAiIiIgAAAAAAAiIiIgAAAAIiIiIAAiIgA
-        AIiIiIgAAAiIiIiAAIiIgAAIiIiIiIiIiIiIgACIiIgACIiIiIiIiIiIiIAAiIiIAAiIiIiIiIiIiIiA
-        AIiIiAAIiIiIiIiIiIiIgACIiIAACIiIiIiIiIiIiIAAiIiAAIiIiIiIiIiIiIiAAIiAAAiIiIiIiIiI
-        iIiIgACAAACIiIiIiIiIiIiIiIAAAAAIiIiIiIiIiIiIiIiAAACIiIiIiIiIiIiIiIiIgACIiIiIiIiI
-        iIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAoAAAAEAAAACAAAAABAAQAAAAAAIAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAgAAAgAAAAICAAIAA
-        AACAAIAAgIAAAMDAwACAgIAAAAD/AAD/AAAA//8A/wAAAP8A/wD//wAA////AHd3d3d3d3d3d3d3d3AA
-        B3d3d3d3AAAAB3d3d3cHd3AHd3d3d3cAAAd3d3d3cAAAd3d3d3dwB3d3cAAHd3cAAHdwAAB3d3AAd3AH
-        cAd3d3d3cAdwB3d3d3dwB3AHd3d3d3AHAHd3d3d3cAAAd3d3d3dwAHd3d3d3d3d3d3d3d3d3AAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
-</value>
-  </data>
   <data name="&gt;&gt;Region2CheckBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -442,14 +411,11 @@
   <data name="Region5CheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;TitleGroupBox.Name" xml:space="preserve">
-    <value>TitleGroupBox</value>
+  <data name="&gt;&gt;SortTitleLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="VideoStandardNtscRadioButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 17</value>
-  </data>
-  <data name="CollectionNumberUpDown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 20</value>
   </data>
   <data name="CollectionNumberLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 13</value>
@@ -478,8 +444,8 @@
   <data name="&gt;&gt;RegionGroupBox.Name" xml:space="preserve">
     <value>RegionGroupBox</value>
   </data>
-  <data name="Region3CheckBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="SortTitleLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 13</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>AddDiscForm</value>
@@ -495,6 +461,12 @@
   </data>
   <data name="AbortButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>105, 23</value>
+  </data>
+  <data name="Region3CheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 17</value>
+  </data>
+  <data name="Region3CheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;EditionLabel.Parent" xml:space="preserve">
     <value>TitleGroupBox</value>
@@ -568,6 +540,12 @@
   <data name="&gt;&gt;SortTitleLabel.Name" xml:space="preserve">
     <value>SortTitleLabel</value>
   </data>
+  <data name="&gt;&gt;AbortButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="CreateDiscContentCheckBox.Text" xml:space="preserve">
+    <value>Create Disc Content</value>
+  </data>
   <data name="&gt;&gt;Region4CheckBox.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
@@ -576,9 +554,6 @@
   </data>
   <data name="&gt;&gt;EditionTextBox.Parent" xml:space="preserve">
     <value>TitleGroupBox</value>
-  </data>
-  <data name="&gt;&gt;EditionTextBox.ZOrder" xml:space="preserve">
-    <value>4</value>
   </data>
   <data name="CollectionNumberLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -634,8 +609,8 @@
   <data name="Region2CheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;SortTitleLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;Region1CheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="AddDiscButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>459, 412</value>
@@ -655,14 +630,11 @@
   <data name="PurchaseDatePicker.Size" type="System.Drawing.Size, System.Drawing">
     <value>250, 20</value>
   </data>
-  <data name="TitleGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
+  <data name="&gt;&gt;Region2CheckBox.Parent" xml:space="preserve">
+    <value>RegionGroupBox</value>
   </data>
-  <data name="CreateDiscContentCheckBox.Text" xml:space="preserve">
-    <value>Create Disc Content</value>
-  </data>
-  <data name="SortTitleLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 13</value>
+  <data name="RegionGroupBox.Text" xml:space="preserve">
+    <value>Region</value>
   </data>
   <data name="TitleLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 22</value>
@@ -718,8 +690,8 @@
   <data name="Region4CheckBox.Text" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;Region1CheckBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;Region3CheckBox.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="CountAsUpDown.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -742,14 +714,17 @@
   <data name="&gt;&gt;PurchaseDatePicker.Type" xml:space="preserve">
     <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="TitleGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="VideoStandardPalRadioButton.Text" xml:space="preserve">
+    <value>PAL</value>
+  </data>
   <data name="&gt;&gt;VideoStandardNtscRadioButton.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="CountAsLabel.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
-  </data>
-  <data name="Region1CheckBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="&gt;&gt;PurchaseInfoGroupBox.Parent" xml:space="preserve">
     <value>$this</value>
@@ -764,9 +739,6 @@
     <value>6, 13</value>
   </data>
   <data name="Region5CheckBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="CountAsLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="PurchaseInfoGroupBox.Location" type="System.Drawing.Point, System.Drawing">
@@ -787,6 +759,9 @@
   <data name="VideoStandardPalRadioButton.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="&gt;&gt;NoCollectionNumberCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="EditionTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>534, 20</value>
   </data>
@@ -797,7 +772,7 @@
     <value>True</value>
   </data>
   <data name="DiscsGrooupBox.Text" xml:space="preserve">
-    <value>Disc</value>
+    <value>Discs</value>
   </data>
   <data name="&gt;&gt;TitleLabel.Name" xml:space="preserve">
     <value>TitleLabel</value>
@@ -808,8 +783,8 @@
   <data name="TitleTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="RegionGroupBox.Text" xml:space="preserve">
-    <value>Region</value>
+  <data name="&gt;&gt;EditionTextBox.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="NoCollectionNumberCheckBox.Text" xml:space="preserve">
     <value>None</value>
@@ -820,11 +795,11 @@
   <data name="&gt;&gt;Region2CheckBox.Name" xml:space="preserve">
     <value>Region2CheckBox</value>
   </data>
-  <data name="PurchaseDateLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="&gt;&gt;TitleLabel.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="&gt;&gt;PurchaseDatePicker.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="PurchaseDateLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 13</value>
@@ -837,6 +812,9 @@
   </data>
   <data name="NoCollectionNumberCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
+  </data>
+  <data name="&gt;&gt;PurchaseInfoGroupBox.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="CountAsLabel.Text" xml:space="preserve">
     <value>Count As</value>
@@ -895,8 +873,8 @@
   <data name="&gt;&gt;Region4CheckBox.Parent" xml:space="preserve">
     <value>RegionGroupBox</value>
   </data>
-  <data name="&gt;&gt;CountAsUpDown.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="CountAsUpDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>123, 71</value>
   </data>
   <data name="CollectionNumberUpDown.Location" type="System.Drawing.Point, System.Drawing">
     <value>123, 45</value>

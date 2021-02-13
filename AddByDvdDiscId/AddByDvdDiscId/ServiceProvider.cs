@@ -17,7 +17,7 @@
 
         public IUIServices UIServices { get; }
 
-        public IDVDProfilerAPI ProfilerApi { get; set; }
+        public IDVDProfilerAPI Api { get; set; }
 
         public DefaultValues DefaultValues { get; set; }
 

@@ -117,62 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="VideoStandardGroupBox.Text" xml:space="preserve">
-    <value>Video-Standard</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="SortTitleLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 13</value>
-  </data>
-  <data name="SortTitleLabel.Text" xml:space="preserve">
-    <value>Sortiertitel</value>
-  </data>
-  <data name="TitleLabel.Text" xml:space="preserve">
-    <value>Titel</value>
-  </data>
-  <data name="TitleGroupBox.Text" xml:space="preserve">
-    <value>Titel</value>
-  </data>
-  <data name="CountAsLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 13</value>
-  </data>
-  <data name="CountAsLabel.Text" xml:space="preserve">
-    <value>Zählen als</value>
-  </data>
-  <data name="CollectionNumberLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 13</value>
-  </data>
-  <data name="CollectionNumberLabel.Text" xml:space="preserve">
-    <value>Nummer</value>
-  </data>
-  <data name="PurchaseDateLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 13</value>
-  </data>
-  <data name="PurchaseDateLabel.Text" xml:space="preserve">
-    <value>Kaufdatum</value>
-  </data>
-  <data name="NoCollectionNumberCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 17</value>
-  </data>
-  <data name="NoCollectionNumberCheckBox.Text" xml:space="preserve">
-    <value>Keine</value>
-  </data>
-  <data name="PurchaseInfoGroupBox.Text" xml:space="preserve">
-    <value>Kauf</value>
-  </data>
-  <data name="CreateDiscContentCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 17</value>
-  </data>
-  <data name="CreateDiscContentCheckBox.Text" xml:space="preserve">
-    <value>Disc-Inhalt hinzufügen</value>
-  </data>
-  <data name="AddDiscButton.Text" xml:space="preserve">
-    <value>Disc hinzufügen</value>
-  </data>
-  <data name="AbortButton.Text" xml:space="preserve">
-    <value>Abbrechen</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Disc hinzufügen</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="DJDSOFT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\DJDSOFT.ICO;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
