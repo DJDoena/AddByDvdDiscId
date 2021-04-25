@@ -112,13 +112,20 @@
             NewProfile.SetRegionByID(_locality.DVDRegion, true);
             NewProfile.SetMediaTypes(true, false, false, false);
 
-            if (GetNtscCountries().Any(c => c.Equals(_locality.Description)))
+            if (GetNtscCountries().Any(c => c.Equals(_locality.ID)))
             {
                 NewProfile.SetVideoStandard(PluginConstants.VIDSTD_NTSC);
             }
             else
             {
                 NewProfile.SetVideoStandard(PluginConstants.VIDSTD_PAL);
+            }
+
+            var currency = GetCurrency();
+
+            if (currency.HasValue)
+            {
+                NewProfile.SetSRPCurrency(currency.Value);
             }
 
             try
@@ -267,6 +274,13 @@
                 NewProfile.SetVideoStandard(PluginConstants.VIDSTD_PAL);
             }
 
+            var currency = GetCurrency();
+
+            if (currency.HasValue)
+            {
+                NewProfile.SetPurchasePriceCurrency(currency.Value);
+            }
+
             NewProfile.SetPurchaseDate(PurchaseDatePicker.Value.Date);
 
             if (NoCollectionNumberCheckBox.Checked)
@@ -356,19 +370,190 @@
             Close();
         }
 
-        private static IEnumerable<string> GetNtscCountries()
+        private static IEnumerable<int> GetNtscCountries()
         {
-            yield return "Canada";
-            yield return "Canada (Quebec)";
-            yield return "Chile";
-            yield return "Colombia";
-            yield return "Japan";
-            yield return "Mexico";
-            yield return "Peru";
-            yield return "Philippines";
-            yield return "South Korea";
-            yield return "Taiwan";
-            yield return "United States";
+            yield return 3; //Canada
+            yield return 19; //Canada (Quebec)
+            yield return 49; //Chile
+            yield return 50; //Colombia
+            yield return 17; //Japan
+            yield return 25; //Mexico
+            yield return 51; //Peru
+            yield return 43; //Philippines
+            yield return 18; //South Korea
+            yield return 28; //Taiwan
+            yield return 0; //United States
+        }
+
+        private int? GetCurrency()
+        {
+            switch (_locality.ID)
+            {
+                case 32: //Argentina
+                    {
+                        return PluginConstants.CURRENCY_ARP; //Argentina (Peso)
+                    }
+                case 2:  //Australia
+                    {
+                        return PluginConstants.CURRENCY_AUD; //Australia (Dollar)
+                    }
+                case 23: //Brazil
+                    {
+                        return PluginConstants.CURRENCY_BRL; //Brazil (Real)
+                    }
+                case 3:  //Canada
+                case 19: //Canada (Quebec)
+                    {
+                        return PluginConstants.CURRENCY_CAD; //Canada (Dollar)
+                    }
+                case 49: //Chile
+                    {
+                        return PluginConstants.CURRENCY_CLP; //Chile (Peso)
+                    }
+                case 6:  //China
+                    {
+                        return PluginConstants.CURRENCY_CNY; //China (Renminbi)
+                    }
+                case 36: //Czech Republic
+                    {
+                        return PluginConstants.CURRENCY_CZK; //Czech Republic (Koruna)
+                    }
+                case 14: //"Denmark"
+                    {
+                        return PluginConstants.CURRENCY_DKK; //Denmark (Krone)
+                    }
+                case 45: //Estonia
+                    {
+                        return PluginConstants.CURRENCY_EEK; //Estonia (Kroon)
+                    }
+                case 4:  //United Kingdom
+                    {
+                        return PluginConstants.CURRENCY_GBP; //Great Britain (Pound)
+                    }
+                case 21: //Hong Kong
+                    {
+                        return PluginConstants.CURRENCY_HKD; //Hong Kong (Dollar)
+                    }
+                case 34: //Hungary
+                    {
+                        return PluginConstants.CURRENCY_HUF; //Hungary (Forint)
+                    }
+                case 26: //Iceland
+                    {
+                        return PluginConstants.CURRENCY_ISK; //Iceland (Krona)
+                    }
+                case 39: //India
+                    {
+                        return PluginConstants.CURRENCY_INR; //India (Rupee)
+                    }
+                case 27: //Indonesia
+                    {
+                        return PluginConstants.CURRENCY_IDR; //Indonesia (Rupiah)
+                    }
+                case 24: //Israel
+                    {
+                        return PluginConstants.CURRENCY_ILS; //Israel (Shekel)
+                    }
+                case 17: //Japan
+                    {
+                        return PluginConstants.CURRENCY_JPY; //Japan (Yen)
+                    }
+                case 37: //Malaysia
+                    {
+                        return PluginConstants.CURRENCY_MYR; //Malaysia (Ringgit)
+                    }
+                case 25: //Mexico
+                    {
+                        return PluginConstants.CURRENCY_MXP; //Mexico (New Peso)
+                    }
+                case 1:  //New Zealand
+                    {
+                        return PluginConstants.CURRENCY_NZD; //New Zealand (Dollar)
+                    }
+                case 12: //Norway
+                    {
+                        return PluginConstants.CURRENCY_NOK; //Norway (Krone)
+                    }
+                case 43: //Philippines
+                    {
+                        return PluginConstants.CURRENCY_PHP; //Philippines (Peso)
+                    }
+                case 29: //Poland
+                    {
+                        return PluginConstants.CURRENCY_PLN; //Poland (Zloty)
+                    }
+                case 46: //Romania
+                    {
+                        return PluginConstants.CURRENCY_RON; //Romania (New leu)
+                    }
+                case 48: //Russia
+                    {
+                        return PluginConstants.CURRENCY_RUR; //Russia (Rouble)
+                    }
+                case 35: //Singapore
+                    {
+                        return PluginConstants.CURRENCY_SGD; //Singapore (Dollar)
+                    }
+                //case 33: //Slovakia - part of the Euro since 2009
+                //    {
+                //        return PluginConstants.CURRENCY_SKK; //Slovakia (Koruna)
+                //    }
+                case 20: //South Africa
+                    {
+                        return PluginConstants.CURRENCY_ZAR; //South Africa (Rand)
+                    }
+                case 18: //South Korea
+                    {
+                        return PluginConstants.CURRENCY_KRW; //South Korea (Won)
+                    }
+                case 11: //Sweden
+                    {
+                        return PluginConstants.CURRENCY_SEK; //Sweden (Krona)
+                    }
+                case 22: //Switzerland
+                    {
+                        return PluginConstants.CURRENCY_CHF; //Switzerland (Franc)
+                    }
+                case 28: //Taiwan
+                    {
+                        return PluginConstants.CURRENCY_TWD; //Taiwan (Dollar)
+                    }
+                case 38: //Thailand
+                    {
+                        return PluginConstants.CURRENCY_THB; //Thailand (Baht)
+                    }
+                case 31: //Turkey
+                    {
+                        return PluginConstants.CURRENCY_TRL; //Turkey (1 million Lira)
+                    }
+                case 0:  //United States
+                    {
+                        return PluginConstants.CURRENCY_USD; //United States (Dollar)
+                    }
+                case 42: //Vietnam
+                    {
+                        return PluginConstants.CURRENCY_VND; //Vietnam (Dong)
+                    }
+                case 40: //Austria
+                case 30: //Belgium
+                case 16: //Finland
+                case 8:  //France
+                case 5:  //Germany
+                case 41: //Greece
+                case 44: //Ireland
+                case 13: //Italy
+                case 9:  //Netherlands
+                case 15: //Portugal
+                case 33: //Slovakia - part of the Euro since 2009
+                case 10: //Spain
+                    {
+                        return PluginConstants.CURRENCY_EUR; //Europe (Euro)
+                    }
+                default:
+                    {
+                        return null;
+                    }
+            }
         }
     }
 }

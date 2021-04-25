@@ -1,7 +1,7 @@
 [Setup]
 AppName=Add by DVD Disc ID
 AppId=AddByDvdDiscId
-AppVerName=Add by DVD Disc ID 1.0.0.0
+AppVerName=Add by DVD Disc ID 1.0.0.1
 AppCopyright=Copyright © Doena Soft. 2021
 AppPublisher=Doena Soft.
 AppPublisherURL=http://doena-journal.net/en/dvd-profiler-tools/
@@ -22,7 +22,7 @@ ShowLanguageDialog=no
 VersionInfoCompany=Doena Soft.
 VersionInfoCopyright=2021
 VersionInfoDescription=Add by DVD Disc ID Setup
-VersionInfoVersion=1.0.0.0
+VersionInfoVersion=1.0.0.1
 UninstallDisplayIcon={app}\djdsoft.ico
 
 [Languages]
@@ -39,11 +39,15 @@ Source: "djdsoft.ico"; DestDir: "{app}"; Flags: ignoreversion
 
 Source: "AddByDvdDiscId.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "AddByDvdDiscId.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "CalculateDvdDiscIdLibrary.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "CalculateDvdDiscIdLibrary.pdb"; DestDir: "{app}"; Flags: ignoreversion
 
+Source: "AbstractionLayer.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "AbstractionLayer.pdb"; DestDir: "{app}"; Flags: ignoreversion
 Source: "DVDProfilerHelper.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "DVDProfilerHelper.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "DVDProfilerHelper.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "DVDProfilerHelper.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "DVDProfilerXML.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "DVDProfilerXML.pdb"; DestDir: "{app}"; Flags: ignoreversion
 
 Source: "de\AddByDvdDiscId.resources.dll"; DestDir: "{app}\de"; Flags: ignoreversion
 Source: "de\DVDProfilerHelper.resources.dll"; DestDir: "{app}\de"; Flags: ignoreversion
