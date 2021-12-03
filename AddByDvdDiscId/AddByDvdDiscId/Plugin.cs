@@ -152,9 +152,21 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
 
         public int GetPluginAPIVersion() => PluginConstants.API_VERSION;
 
-        public int GetVersionMajor() => _pluginVersion.Major;
+        public int GetVersionMajor()
+        {
+            var version = System.Reflection.Assembly.GetAssembly(this.GetType()).GetName().Version;
 
-        public int GetVersionMinor() => _pluginVersion.Minor;
+            return version.Major;
+        }
+
+        public int GetVersionMinor()
+        {
+            var version = System.Reflection.Assembly.GetAssembly(this.GetType()).GetName().Version;
+
+            var minor = version.Minor * 100 + version.Build * 10 + version.Revision;
+
+            return minor;
+        }
 
         #endregion
 

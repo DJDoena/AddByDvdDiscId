@@ -151,6 +151,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>"%25ProgramFiles%25\Inno Setup 6\iscc.exe"  ..\..\..\..\AddByDvdDiscIdSetup\Setup.iss</PostBuildEvent>
+    <PostBuildEvent>"%25ProgramFiles(x86)%25\Inno Setup 6\iscc.exe"  ..\..\..\..\AddByDvdDiscIdSetup\Setup.iss</PostBuildEvent>
   </PropertyGroup>
 </Project>
