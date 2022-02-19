@@ -34,26 +34,31 @@
         {
             _serviceProvider = serviceProvider;
 
-            InitializeComponent();
+            this.InitializeComponent();
 
-            Icon = Properties.Resources.DJDSOFT;
+            this.Icon = Properties.Resources.DJDSOFT;
 
-            UpdateFromOnlineDatabaseCheckBox.Checked = DefaultValues.DownloadProfile;
+            UpdateFromOnlineDatabaseCheckBox.Checked = this.DefaultValues.DownloadProfile;
 
             var failure = false;
 
-            failure |= InitializeDriveComboBox();
-            failure |= InitializeLocalityComboBox();
+            failure |= this.InitializeDriveComboBox();
+            failure |= this.InitializeLocalityComboBox();
 
-            failure |= CheckDecrypterRunning();
+            failure |= this.CheckDecrypterRunning();
 
             if (failure)
             {
-                Load += (s, e) => Close();
+                Load += (s, e) => this.Close();
             }
             else
             {
-                _parentProfile = InitializeParentProfile();
+                _parentProfile = this.InitializeParentProfile();
+            }
+
+            if (_parentProfile != null)
+            {
+                this.SetDefaultLocality();
             }
         }
 
@@ -62,7 +67,7 @@
             IEnumerable<IDriveInfo> drives;
             try
             {
-                drives = IOServices.GetDriveInfos(DriveType.CDRom);
+                drives = this.IOServices.GetDriveInfos(DriveType.CDRom);
             }
             catch
             {
@@ -75,7 +80,7 @@
             DriveComboBox.ValueMember = nameof(DriveViewModel.Id);
             DriveComboBox.DisplayMember = nameof(DriveViewModel.Description);
 
-            var selectedDrive = driveViewModels.FirstOrDefault(d => d.Id == DefaultValues.SelectedDrive);
+            var selectedDrive = driveViewModels.FirstOrDefault(d => d.Id == this.DefaultValues.SelectedDrive);
 
             if (selectedDrive != null)
             {
@@ -97,7 +102,7 @@
 
             if (!driveViewModels.Any())
             {
-                UIServices.ShowMessageBox(MessageBoxTexts.NoDriveFound, MessageBoxTexts.ErrorHeader, UI.Buttons.OK, UI.Icon.Error);
+                this.UIServices.ShowMessageBox(MessageBoxTexts.NoDriveFound, MessageBoxTexts.ErrorHeader, UI.Buttons.OK, UI.Icon.Error);
 
                 return true;
             }
@@ -109,13 +114,13 @@
 
         private bool InitializeLocalityComboBox()
         {
-            var localityViewModels = Localities.OrderBy(l => l.Description).Select(l => new LocalityViewModel(l)).ToList();
+            var localityViewModels = this.Localities.OrderBy(l => l.Description).Select(l => new LocalityViewModel(l)).ToList();
 
             LocalityComboBox.DataSource = localityViewModels;
             LocalityComboBox.ValueMember = nameof(LocalityViewModel.Id);
             LocalityComboBox.DisplayMember = nameof(LocalityViewModel.Description);
 
-            var selectedLocality = localityViewModels.FirstOrDefault(l => l.Id == DefaultValues.SelectedLocality);
+            var selectedLocality = localityViewModels.FirstOrDefault(l => l.Id == this.DefaultValues.SelectedLocality);
 
             if (selectedLocality != null)
             {
@@ -128,7 +133,7 @@
 
             if (!localityViewModels.Any())
             {
-                UIServices.ShowMessageBox(MessageBoxTexts.NoProfilerLocalityFound, MessageBoxTexts.ErrorHeader, UI.Buttons.OK, UI.Icon.Error);
+                this.UIServices.ShowMessageBox(MessageBoxTexts.NoProfilerLocalityFound, MessageBoxTexts.ErrorHeader, UI.Buttons.OK, UI.Icon.Error);
 
                 return true;
             }
@@ -146,7 +151,7 @@
 
             if (anyDVDs?.Any() == true || passKeys?.Any() == true)
             {
-                UIServices.ShowMessageBox(MessageBoxTexts.DecrypterRunning, MessageBoxTexts.ErrorHeader, UI.Buttons.OK, UI.Icon.Error);
+                this.UIServices.ShowMessageBox(MessageBoxTexts.DecrypterRunning, MessageBoxTexts.ErrorHeader, UI.Buttons.OK, UI.Icon.Error);
 
                 return true;
             }
@@ -158,16 +163,16 @@
 
         private IDVDInfo InitializeParentProfile()
         {
-            var displayedProfile = Api.GetDisplayedDVD();
+            var displayedProfile = this.Api.GetDisplayedDVD();
 
             IDVDInfo parentProfile = null;
 
             if (displayedProfile != null)
             {
-                Api.DVDByProfileID(out parentProfile, displayedProfile.GetProfileID(), PluginConstants.DATASEC_AllSections, -1);
+                this.Api.DVDByProfileID(out parentProfile, displayedProfile.GetProfileID(), PluginConstants.DATASEC_AllSections, -1);
 
                 AddAsChildCheckBox.Enabled = true;
-                AddAsChildCheckBox.Checked = DefaultValues.AddAsChild;
+                AddAsChildCheckBox.Checked = this.DefaultValues.AddAsChild;
             }
             else
             {
@@ -178,35 +183,44 @@
             return parentProfile;
         }
 
+        private void SetDefaultLocality()
+        {
+            var parentProfileId = _parentProfile.GetProfileID();
+
+            this.Api.DecodeProfileID(parentProfileId, out _, out var localityId, out _);
+
+            LocalityComboBox.SelectedValue = localityId;
+        }
+
         private void OnFormFormClosed(object sender, FormClosedEventArgs e)
         {
-            TrySaveDrive();
+            this.TrySaveDrive();
 
-            TrySaveLocality();
+            this.TrySaveLocality();
 
-            DefaultValues.DownloadProfile = UpdateFromOnlineDatabaseCheckBox.Checked;
+            this.DefaultValues.DownloadProfile = UpdateFromOnlineDatabaseCheckBox.Checked;
 
             if (AddAsChildCheckBox.Enabled)
             {
-                DefaultValues.AddAsChild = AddAsChildCheckBox.Checked;
+                this.DefaultValues.AddAsChild = AddAsChildCheckBox.Checked;
             }
         }
 
         private void OnRefreshDrivesButtonClick(object sender, EventArgs e)
         {
-            TrySaveDrive();
+            this.TrySaveDrive();
 
             DriveComboBox.DataSource = null;
             DriveComboBox.Items.Clear();
 
-            InitializeDriveComboBox();
+            this.InitializeDriveComboBox();
         }
 
         private void TrySaveDrive()
         {
             if (DriveComboBox.SelectedIndex >= 0)
             {
-                DefaultValues.SelectedDrive = (string)DriveComboBox.SelectedValue;
+                this.DefaultValues.SelectedDrive = (string)DriveComboBox.SelectedValue;
             }
         }
 
@@ -214,7 +228,7 @@
         {
             if (LocalityComboBox.SelectedIndex >= 0)
             {
-                DefaultValues.SelectedLocality = (int)LocalityComboBox.SelectedValue;
+                this.DefaultValues.SelectedLocality = (int)LocalityComboBox.SelectedValue;
             }
         }
 
@@ -226,11 +240,11 @@
 
                 var locality = (LocalityViewModel)LocalityComboBox.SelectedItem;
 
-                AddDisc(drive.Drive, locality.Locality);
+                this.AddDisc(drive.Drive, locality.Locality);
             }
             catch (Exception ex)
             {
-                UIServices.ShowMessageBox(ex.Message, MessageBoxTexts.CriticalErrorHeader, UI.Buttons.OK, UI.Icon.Error);
+                this.UIServices.ShowMessageBox(ex.Message, MessageBoxTexts.CriticalErrorHeader, UI.Buttons.OK, UI.Icon.Error);
             }
         }
 
@@ -238,35 +252,35 @@
         {
             if (!drive.IsReady)
             {
-                UIServices.ShowMessageBox(string.Format(MessageBoxTexts.DriveNotReady, drive.DriveLetter), MessageBoxTexts.WarningHeader, UI.Buttons.OK, UI.Icon.Warning);
+                this.UIServices.ShowMessageBox(string.Format(MessageBoxTexts.DriveNotReady, drive.DriveLetter), MessageBoxTexts.WarningHeader, UI.Buttons.OK, UI.Icon.Warning);
 
                 return;
             }
 
-            var videoFolder = IOServices.GetFolderInfo(IOServices.Path.Combine(drive.RootFolder, "VIDEO_TS"));
+            var videoFolder = this.IOServices.GetFolderInfo(this.IOServices.Path.Combine(drive.RootFolder, "VIDEO_TS"));
 
             if (!videoFolder.Exists)
             {
-                UIServices.ShowMessageBox(string.Format(MessageBoxTexts.NoDvdInDrive, drive.DriveLetter), MessageBoxTexts.WarningHeader, UI.Buttons.OK, UI.Icon.Warning);
+                this.UIServices.ShowMessageBox(string.Format(MessageBoxTexts.NoDvdInDrive, drive.DriveLetter), MessageBoxTexts.WarningHeader, UI.Buttons.OK, UI.Icon.Warning);
 
                 return;
             }
 
-            var previousCursor = Cursor;
+            var previousCursor = this.Cursor;
 
             try
             {
-                TryAddDisc(drive, locality, previousCursor);
+                this.TryAddDisc(drive, locality, previousCursor);
             }
             finally
             {
-                Cursor = previousCursor;
+                this.Cursor = previousCursor;
             }
         }
 
         private void TryAddDisc(IDriveInfo drive, Locality locality, Cursor previousCursor)
         {
-            Cursor = Cursors.WaitCursor;
+            this.Cursor = Cursors.WaitCursor;
 
             Application.DoEvents();
 
@@ -277,7 +291,7 @@
             }
             catch
             {
-                UIServices.ShowMessageBox(string.Format(MessageBoxTexts.DriveNotReady, drive.DriveLetter), MessageBoxTexts.WarningHeader, UI.Buttons.OK, UI.Icon.Warning);
+                this.UIServices.ShowMessageBox(string.Format(MessageBoxTexts.DriveNotReady, drive.DriveLetter), MessageBoxTexts.WarningHeader, UI.Buttons.OK, UI.Icon.Warning);
 
                 return;
             }
@@ -288,7 +302,7 @@
 
             var profileId = $"I{discId}{suffix}";
 
-            var profileIds = ((object[])Api.GetAllProfileIDs()).Cast<string>().ToList();
+            var profileIds = ((object[])this.Api.GetAllProfileIDs()).Cast<string>().ToList();
 
             var existingProfileId = profileIds.FirstOrDefault(id => profileId.Equals(id));
 
@@ -296,11 +310,11 @@
 
             if (!string.IsNullOrEmpty(existingProfileId))
             {
-                Api.SelectDVDByProfileID(profileId);
+                this.Api.SelectDVDByProfileID(profileId);
 
-                Cursor = previousCursor;
+                this.Cursor = previousCursor;
 
-                UIServices.ShowMessageBox(string.Format(MessageBoxTexts.ProfileAlreadyExists, formattedDiscId, locality.Description), MessageBoxTexts.WarningHeader, UI.Buttons.OK, UI.Icon.Warning);
+                this.UIServices.ShowMessageBox(string.Format(MessageBoxTexts.ProfileAlreadyExists, formattedDiscId, locality.Description), MessageBoxTexts.WarningHeader, UI.Buttons.OK, UI.Icon.Warning);
             }
             else
             {
@@ -308,19 +322,19 @@
                 {
                     _allProfiles = profileIds.Select(id =>
                     {
-                        Api.DVDByProfileID(out var profile, id, 0, 0);
+                        this.Api.DVDByProfileID(out var profile, id, 0, 0);
 
                         return profile;
                     }).ToList();
                 }
 
-                DefaultValues.DownloadProfile = UpdateFromOnlineDatabaseCheckBox.Checked;
+                this.DefaultValues.DownloadProfile = UpdateFromOnlineDatabaseCheckBox.Checked;
 
                 var parentProfile = AddAsChildCheckBox.Checked
                     ? _parentProfile
                     : null;
 
-                Cursor = previousCursor;
+                this.Cursor = previousCursor;
 
                 using (var form = new AddDiscForm(_serviceProvider, locality, profileId, discId, drive, parentProfile, _allProfiles, formattedDiscId))
                 {
@@ -347,9 +361,9 @@
 
         private void OnAbortButtonClick(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Cancel;
+            this.DialogResult = DialogResult.Cancel;
 
-            Close();
+            this.Close();
         }
     }
 }

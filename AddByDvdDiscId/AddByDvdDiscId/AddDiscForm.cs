@@ -41,24 +41,24 @@
             _drive = drive;
             _parentProfile = parentProfile;
 
-            InitializeComponent();
+            this.InitializeComponent();
 
-            Icon = Properties.Resources.DJDSOFT;
+            this.Icon = Properties.Resources.DJDSOFT;
 
-            Text = $"{Text}: {formattedDiscId} ({locality.Description})";
+            this.Text = $"{this.Text}: {formattedDiscId} ({locality.Description})";
 
-            DialogResult = DialogResult.None;
+            this.DialogResult = DialogResult.None;
 
-            Load += (s, e) => OnAddDiscFormLoad(profiles);
+            Load += (s, e) => this.OnAddDiscFormLoad(profiles);
         }
 
         private void OnAddDiscFormLoad(IEnumerable<IDVDInfo> profiles)
         {
-            CollectionNumberUpDown.Value = GetNextFreeNumber(profiles);
+            CollectionNumberUpDown.Value = this.GetNextFreeNumber(profiles);
 
-            LoadProfile();
+            this.LoadProfile();
 
-            InitForm();
+            this.InitForm();
         }
 
         private int GetNextFreeNumber(IEnumerable<IDVDInfo> profiles)
@@ -79,82 +79,94 @@
 
         private void LoadProfile()
         {
-            if (DefaultValues.DownloadProfile)
+            if (this.DefaultValues.DownloadProfile)
             {
                 try
                 {
-                    Api.GetOnlineProfileByID(out var profile, _profileId);
+                    this.Api.GetOnlineProfileByID(out var profile, _profileId);
 
-                    NewProfile = profile;
+                    this.NewProfile = profile;
                 }
                 catch
                 { }
             }
 
-            if (NewProfile == null)
+            if (this.NewProfile == null)
             {
-                InitProfile();
+                this.InitProfile();
             }
         }
 
         private void InitProfile()
         {
-            NewProfile = Api.CreateDVD();
+            this.NewProfile = this.Api.CreateDVD();
 
-            NewProfile.SetProfileID(_profileId);
+            this.NewProfile.SetProfileID(_profileId);
 
-            NewProfile.SetProfileTimestamp(DateTime.Now);
+            this.NewProfile.SetProfileTimestamp(DateTime.Now);
 
-            NewProfile.SetChangesMadeIndicator(true);
-            NewProfile.SetContributableChangesMade(true);
+            this.NewProfile.SetChangesMadeIndicator(true);
+            this.NewProfile.SetContributableChangesMade(true);
 
-            NewProfile.SetCollectionType(PluginConstants.COLLTYPE_Owned);
-            NewProfile.SetRegionByID(_locality.DVDRegion, true);
-            NewProfile.SetMediaTypes(true, false, false, false);
+            this.NewProfile.SetCollectionType(PluginConstants.COLLTYPE_Owned);
+            this.NewProfile.SetRegionByID(_locality.DVDRegion, true);
+            this.NewProfile.SetMediaTypes(true, false, false, false);
 
             if (GetNtscCountries().Any(c => c.Equals(_locality.ID)))
             {
-                NewProfile.SetVideoStandard(PluginConstants.VIDSTD_NTSC);
+                this.NewProfile.SetVideoStandard(PluginConstants.VIDSTD_NTSC);
             }
             else
             {
-                NewProfile.SetVideoStandard(PluginConstants.VIDSTD_PAL);
+                this.NewProfile.SetVideoStandard(PluginConstants.VIDSTD_PAL);
             }
 
-            var currency = GetCurrency();
+            var currency = this.GetCurrency();
 
             if (currency.HasValue)
             {
-                NewProfile.SetSRPCurrency(currency.Value);
+                this.NewProfile.SetSRPCurrency(currency.Value);
             }
 
             try
             {
-                Api.GetInfoOnlineProfileID(_profileId, out var title, out _, out var edition, out _, out _, out _, out _, out _, out _, out _, out _);
+                this.Api.GetInfoOnlineProfileID(_profileId, out var title, out _, out var edition, out _, out _, out _, out _, out _, out _, out _, out _);
 
-                NewProfile.SetTitle(title);
-                NewProfile.SetSortTitle(title);
-
-                NewProfile.SetEdition(edition);
+                this.NewProfile.SetTitle(title);
+                this.NewProfile.SetSortTitle(title);
+                this.NewProfile.SetEdition(edition);
             }
             catch
             { }
+
+            if (string.IsNullOrEmpty(this.NewProfile.GetTitle()) && _parentProfile != null)
+            {
+                var title = _parentProfile.GetTitle();
+
+                var sortTitle = _parentProfile.GetSortTitle();
+
+                var edition = _parentProfile.GetEdition();
+
+                this.NewProfile.SetTitle(title);
+                this.NewProfile.SetSortTitle(title);
+                this.NewProfile.SetEdition(edition);
+            }
         }
 
         private void InitForm()
         {
-            TitleTextBox.Text = NewProfile.GetTitle();
-            EditionTextBox.Text = NewProfile.GetEdition();
-            SortTitleTextBox.Text = NewProfile.GetSortTitle();
+            TitleTextBox.Text = this.NewProfile.GetTitle();
+            EditionTextBox.Text = this.NewProfile.GetEdition();
+            SortTitleTextBox.Text = this.NewProfile.GetSortTitle();
 
-            Region1CheckBox.Checked = NewProfile.GetRegionByID(1);
-            Region2CheckBox.Checked = NewProfile.GetRegionByID(2);
-            Region3CheckBox.Checked = NewProfile.GetRegionByID(3);
-            Region4CheckBox.Checked = NewProfile.GetRegionByID(4);
-            Region5CheckBox.Checked = NewProfile.GetRegionByID(5);
-            Region6CheckBox.Checked = NewProfile.GetRegionByID(6);
+            Region1CheckBox.Checked = this.NewProfile.GetRegionByID(1);
+            Region2CheckBox.Checked = this.NewProfile.GetRegionByID(2);
+            Region3CheckBox.Checked = this.NewProfile.GetRegionByID(3);
+            Region4CheckBox.Checked = this.NewProfile.GetRegionByID(4);
+            Region5CheckBox.Checked = this.NewProfile.GetRegionByID(5);
+            Region6CheckBox.Checked = this.NewProfile.GetRegionByID(6);
 
-            if (NewProfile.GetVideoStandard() == PluginConstants.VIDSTD_NTSC)
+            if (this.NewProfile.GetVideoStandard() == PluginConstants.VIDSTD_NTSC)
             {
                 VideoStandardNtscRadioButton.Checked = true;
             }
@@ -165,7 +177,7 @@
 
             PurchaseDatePicker.Value = DateTime.Now.Date;
 
-            CreateDiscContentCheckBox.Checked = DefaultValues.CreateDiscIdContent;
+            CreateDiscContentCheckBox.Checked = this.DefaultValues.CreateDiscIdContent;
         }
 
         private void OnNoCollectionNumberCheckBoxCheckedChanged(object sender, EventArgs e)
@@ -231,9 +243,9 @@
 
         private void OnAddDiscFormFormClosed(object sender, FormClosedEventArgs e)
         {
-            if (DialogResult == DialogResult.OK)
+            if (this.DialogResult == DialogResult.OK)
             {
-                DefaultValues.CreateDiscIdContent = CreateDiscContentCheckBox.Checked;
+                this.DefaultValues.CreateDiscIdContent = CreateDiscContentCheckBox.Checked;
             }
         }
 
@@ -241,75 +253,75 @@
         {
             if (string.IsNullOrWhiteSpace(TitleTextBox.Text))
             {
-                UIServices.ShowMessageBox(MessageBoxTexts.TitleIsEmpty, MessageBoxTexts.WarningHeader, UI.Buttons.OK, UI.Icon.Warning);
+                this.UIServices.ShowMessageBox(MessageBoxTexts.TitleIsEmpty, MessageBoxTexts.WarningHeader, UI.Buttons.OK, UI.Icon.Warning);
 
                 return;
             }
 
-            NewProfile.SetTitle(TitleTextBox.Text);
-            NewProfile.SetEdition(EditionTextBox.Text);
+            this.NewProfile.SetTitle(TitleTextBox.Text);
+            this.NewProfile.SetEdition(EditionTextBox.Text);
 
             if (!string.IsNullOrWhiteSpace(SortTitleTextBox.Text))
             {
-                NewProfile.SetSortTitle(SortTitleTextBox.Text);
+                this.NewProfile.SetSortTitle(SortTitleTextBox.Text);
             }
             else
             {
-                NewProfile.SetSortTitle(TitleTextBox.Text);
+                this.NewProfile.SetSortTitle(TitleTextBox.Text);
             }
 
-            NewProfile.SetRegionByID(1, Region1CheckBox.Checked);
-            NewProfile.SetRegionByID(2, Region2CheckBox.Checked);
-            NewProfile.SetRegionByID(3, Region3CheckBox.Checked);
-            NewProfile.SetRegionByID(4, Region4CheckBox.Checked);
-            NewProfile.SetRegionByID(5, Region5CheckBox.Checked);
-            NewProfile.SetRegionByID(6, Region6CheckBox.Checked);
+            this.NewProfile.SetRegionByID(1, Region1CheckBox.Checked);
+            this.NewProfile.SetRegionByID(2, Region2CheckBox.Checked);
+            this.NewProfile.SetRegionByID(3, Region3CheckBox.Checked);
+            this.NewProfile.SetRegionByID(4, Region4CheckBox.Checked);
+            this.NewProfile.SetRegionByID(5, Region5CheckBox.Checked);
+            this.NewProfile.SetRegionByID(6, Region6CheckBox.Checked);
 
             if (VideoStandardNtscRadioButton.Checked)
             {
-                NewProfile.SetVideoStandard(PluginConstants.VIDSTD_NTSC);
+                this.NewProfile.SetVideoStandard(PluginConstants.VIDSTD_NTSC);
             }
             else
             {
-                NewProfile.SetVideoStandard(PluginConstants.VIDSTD_PAL);
+                this.NewProfile.SetVideoStandard(PluginConstants.VIDSTD_PAL);
             }
 
-            var currency = GetCurrency();
+            var currency = this.GetCurrency();
 
             if (currency.HasValue)
             {
-                NewProfile.SetPurchasePriceCurrency(currency.Value);
+                this.NewProfile.SetPurchasePriceCurrency(currency.Value);
             }
 
-            NewProfile.SetPurchaseDate(PurchaseDatePicker.Value.Date);
+            this.NewProfile.SetPurchaseDate(PurchaseDatePicker.Value.Date);
 
             if (NoCollectionNumberCheckBox.Checked)
             {
-                NewProfile.SetCollectionNumber("-1");
+                this.NewProfile.SetCollectionNumber("-1");
             }
             else if (CollectionNumberUpDown.Value == 0)
             {
-                NewProfile.SetCollectionNumber(string.Empty);
+                this.NewProfile.SetCollectionNumber(string.Empty);
             }
             else
             {
-                NewProfile.SetCollectionNumber(((int)CollectionNumberUpDown.Value).ToString());
+                this.NewProfile.SetCollectionNumber(((int)CollectionNumberUpDown.Value).ToString());
             }
 
             if (CreateDiscContentCheckBox.Checked)
             {
-                CreateDiscContent();
+                this.CreateDiscContent();
             }
 
-            NewProfile.SetCountAs((int)CountAsUpDown.Value);
+            this.NewProfile.SetCountAs((int)CountAsUpDown.Value);
 
-            Api.SaveDVDToCollection(NewProfile);
+            this.Api.SaveDVDToCollection(this.NewProfile);
 
-            if (DefaultValues.DownloadProfile)
+            if (this.DefaultValues.DownloadProfile)
             {
                 try
                 {
-                    Api.DownloadCoverImagesForProfileID(_profileId, string.Empty);
+                    this.Api.DownloadCoverImagesForProfileID(_profileId, string.Empty);
                 }
                 catch
                 { }
@@ -319,28 +331,35 @@
             {
                 _parentProfile.AddBoxSetContent(_profileId);
 
-                Api.SaveDVDToCollection(_parentProfile);
+                this.Api.SaveDVDToCollection(_parentProfile);
             }
 
-            Api.ClearAllFilters();
-            Api.RequeryDatabase();
+            this.Api.ClearAllFilters();
+            this.Api.RequeryDatabase();
 
-            Api.SelectDVDByProfileID(_profileId);
+            if (_parentProfile != null)
+            {
+                this.Api.SelectDVDByProfileID(_parentProfile.GetProfileID());
+                this.Api.ReloadCurrentDVD();
+            }
+            else
+            {
+                this.Api.SelectDVDByProfileID(_profileId);
+                this.Api.ReloadCurrentDVD();
+            }
 
-            Api.ReloadCurrentDVD();
+            this.DialogResult = DialogResult.OK;
 
-            DialogResult = DialogResult.OK;
-
-            Close();
+            this.Close();
         }
 
         private void CreateDiscContent()
         {
             var hasDisc = false;
 
-            for (var discIndex = 0; discIndex < NewProfile.GetDiscCount(); discIndex++)
+            for (var discIndex = 0; discIndex < this.NewProfile.GetDiscCount(); discIndex++)
             {
-                NewProfile.GetDiscByIndex(discIndex, out _, out _, out _, out _, out var discIdSideA, out var discIdSideB, out _, out _, out _, out _);
+                this.NewProfile.GetDiscByIndex(discIndex, out _, out _, out _, out _, out var discIdSideA, out var discIdSideB, out _, out _, out _, out _);
 
                 if (_discId.Equals(discIdSideA) || _discId.Equals(discIdSideB))
                 {
@@ -354,9 +373,9 @@
             {
                 try
                 {
-                    Api.GetDiscIDFromDrive(_drive.RootFolder, out _, out var isDualLayered);
+                    this.Api.GetDiscIDFromDrive(_drive.RootFolder, out _, out var isDualLayered);
 
-                    NewProfile.AddDisc("Main Feature", string.Empty, _drive.VolumeLabel, string.Empty, _discId, string.Empty, isDualLayered, false, string.Empty, string.Empty);
+                    this.NewProfile.AddDisc("Main Feature", string.Empty, _drive.VolumeLabel, string.Empty, _discId, string.Empty, isDualLayered, false, string.Empty, string.Empty);
                 }
                 catch
                 { }
@@ -365,9 +384,9 @@
 
         private void OnAbortButtonClick(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Cancel;
+            this.DialogResult = DialogResult.Cancel;
 
-            Close();
+            this.Close();
         }
 
         private static IEnumerable<int> GetNtscCountries()
