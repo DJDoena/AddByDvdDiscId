@@ -38,18 +38,14 @@ Source: "djdsoft.ico"; DestDir: "{app}"; Flags: ignoreversion
 
 Source: "AddByDvdDiscId.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "AddByDvdDiscId.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "CalculateDvdDiscIdLibrary.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "CalculateDvdDiscIdLibrary.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "DoenaSoft.CalculateDvdDiscId.dll"; DestDir: "{app}"; Flags: ignoreversion
 
-Source: "AbstractionLayer.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "AbstractionLayer.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "DVDProfilerHelper.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "DVDProfilerHelper.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "DVDProfilerXML.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "DVDProfilerXML.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "DoenaSoft.AbstractionLayer.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "DoenaSoft.DVDProfilerHelper.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "DoenaSoft.DVDProfilerXML.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 Source: "de\AddByDvdDiscId.resources.dll"; DestDir: "{app}\de"; Flags: ignoreversion
-Source: "de\DVDProfilerHelper.resources.dll"; DestDir: "{app}\de"; Flags: ignoreversion
+Source: "de\DoenaSoft.DVDProfilerHelper.resources.dll"; DestDir: "{app}\de"; Flags: ignoreversion
 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 

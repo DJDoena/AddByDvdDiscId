@@ -1,24 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30907.101
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddByDvdDiscId", "AddByDvdDiscId\AddByDvdDiscId\AddByDvdDiscId.csproj", "{95DA04B5-26D8-487E-BB29-779F231E43EB}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Libraries", "_Libraries", "{621EB36C-F5F1-4F79-9D3F-16323CC9C8A9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculateDvdDiscIdLibrary", "Calculate-Video-DVD-Disc-Id\CalculateDvdDiscIdLibrary\CalculateDvdDiscIdLibrary.csproj", "{DE78E209-FE25-497E-A3D0-0D958C1EFE08}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVDProfilerHelper", "DVDProfilerXML\DVDProfilerHelper\DVDProfilerHelper\DVDProfilerHelper.csproj", "{461DACCA-8EBF-4C03-AD1A-C438E4EB3B36}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVDProfilerXML", "DVDProfilerXML\DVDProfilerXML\DVDProfilerXML.csproj", "{2E90CC6F-892E-45B3-8812-EE52FFA3B222}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{85326760-F216-4FBE-A354-712613BA5BDB}"
 	ProjectSection(SolutionItems) = preProject
 		AddByDvdDiscId\AddByDvdDiscIdSetup\Setup.iss = AddByDvdDiscId\AddByDvdDiscIdSetup\Setup.iss
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractionLayer", "AbstractionLayer\AbstractionLayer\AbstractionLayer.csproj", "{491B235A-1D56-4732-B491-338A3DD2246D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,47 +26,9 @@ Global
 		{95DA04B5-26D8-487E-BB29-779F231E43EB}.Release|x64.Build.0 = Release|Any CPU
 		{95DA04B5-26D8-487E-BB29-779F231E43EB}.Release|x86.ActiveCfg = Release|x86
 		{95DA04B5-26D8-487E-BB29-779F231E43EB}.Release|x86.Build.0 = Release|x86
-		{DE78E209-FE25-497E-A3D0-0D958C1EFE08}.Debug|x64.ActiveCfg = Debug|x64
-		{DE78E209-FE25-497E-A3D0-0D958C1EFE08}.Debug|x64.Build.0 = Debug|x64
-		{DE78E209-FE25-497E-A3D0-0D958C1EFE08}.Debug|x86.ActiveCfg = Debug|x86
-		{DE78E209-FE25-497E-A3D0-0D958C1EFE08}.Debug|x86.Build.0 = Debug|x86
-		{DE78E209-FE25-497E-A3D0-0D958C1EFE08}.Release|x64.ActiveCfg = Release|x64
-		{DE78E209-FE25-497E-A3D0-0D958C1EFE08}.Release|x64.Build.0 = Release|x64
-		{DE78E209-FE25-497E-A3D0-0D958C1EFE08}.Release|x86.ActiveCfg = Release|x86
-		{DE78E209-FE25-497E-A3D0-0D958C1EFE08}.Release|x86.Build.0 = Release|x86
-		{461DACCA-8EBF-4C03-AD1A-C438E4EB3B36}.Debug|x64.ActiveCfg = Debug|x64
-		{461DACCA-8EBF-4C03-AD1A-C438E4EB3B36}.Debug|x64.Build.0 = Debug|x64
-		{461DACCA-8EBF-4C03-AD1A-C438E4EB3B36}.Debug|x86.ActiveCfg = Debug|x86
-		{461DACCA-8EBF-4C03-AD1A-C438E4EB3B36}.Debug|x86.Build.0 = Debug|x86
-		{461DACCA-8EBF-4C03-AD1A-C438E4EB3B36}.Release|x64.ActiveCfg = Release|x64
-		{461DACCA-8EBF-4C03-AD1A-C438E4EB3B36}.Release|x64.Build.0 = Release|x64
-		{461DACCA-8EBF-4C03-AD1A-C438E4EB3B36}.Release|x86.ActiveCfg = Release|x86
-		{461DACCA-8EBF-4C03-AD1A-C438E4EB3B36}.Release|x86.Build.0 = Release|x86
-		{2E90CC6F-892E-45B3-8812-EE52FFA3B222}.Debug|x64.ActiveCfg = Debug|x64
-		{2E90CC6F-892E-45B3-8812-EE52FFA3B222}.Debug|x64.Build.0 = Debug|x64
-		{2E90CC6F-892E-45B3-8812-EE52FFA3B222}.Debug|x86.ActiveCfg = Debug|x86
-		{2E90CC6F-892E-45B3-8812-EE52FFA3B222}.Debug|x86.Build.0 = Debug|x86
-		{2E90CC6F-892E-45B3-8812-EE52FFA3B222}.Release|x64.ActiveCfg = Release|x64
-		{2E90CC6F-892E-45B3-8812-EE52FFA3B222}.Release|x64.Build.0 = Release|x64
-		{2E90CC6F-892E-45B3-8812-EE52FFA3B222}.Release|x86.ActiveCfg = Release|x86
-		{2E90CC6F-892E-45B3-8812-EE52FFA3B222}.Release|x86.Build.0 = Release|x86
-		{491B235A-1D56-4732-B491-338A3DD2246D}.Debug|x64.ActiveCfg = Debug|x64
-		{491B235A-1D56-4732-B491-338A3DD2246D}.Debug|x64.Build.0 = Debug|x64
-		{491B235A-1D56-4732-B491-338A3DD2246D}.Debug|x86.ActiveCfg = Debug|x86
-		{491B235A-1D56-4732-B491-338A3DD2246D}.Debug|x86.Build.0 = Debug|x86
-		{491B235A-1D56-4732-B491-338A3DD2246D}.Release|x64.ActiveCfg = Release|x64
-		{491B235A-1D56-4732-B491-338A3DD2246D}.Release|x64.Build.0 = Release|x64
-		{491B235A-1D56-4732-B491-338A3DD2246D}.Release|x86.ActiveCfg = Release|x86
-		{491B235A-1D56-4732-B491-338A3DD2246D}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{DE78E209-FE25-497E-A3D0-0D958C1EFE08} = {621EB36C-F5F1-4F79-9D3F-16323CC9C8A9}
-		{461DACCA-8EBF-4C03-AD1A-C438E4EB3B36} = {621EB36C-F5F1-4F79-9D3F-16323CC9C8A9}
-		{2E90CC6F-892E-45B3-8812-EE52FFA3B222} = {621EB36C-F5F1-4F79-9D3F-16323CC9C8A9}
-		{491B235A-1D56-4732-B491-338A3DD2246D} = {621EB36C-F5F1-4F79-9D3F-16323CC9C8A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4E3D316C-FDE8-420C-90BB-6F060164ECDE}
