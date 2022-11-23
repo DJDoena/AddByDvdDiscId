@@ -1,7 +1,7 @@
 [Setup]
 AppName=Add by DVD Disc ID
 AppId=AddByDvdDiscId
-AppVerName=Add by DVD Disc ID 1.0.0.3
+AppVerName=Add by DVD Disc ID 1.0.0.4
 AppCopyright=Copyright © Doena Soft. 2021 - 2022
 AppPublisher=Doena Soft.
 AppPublisherURL=http://doena-journal.net/en/dvd-profiler-tools/
@@ -21,7 +21,7 @@ ShowLanguageDialog=no
 VersionInfoCompany=Doena Soft.
 VersionInfoCopyright=2021 - 2022
 VersionInfoDescription=Add by DVD Disc ID Setup
-VersionInfoVersion=1.0.0.3
+VersionInfoVersion=1.0.0.4
 UninstallDisplayIcon={app}\djdsoft.ico
 
 [Languages]

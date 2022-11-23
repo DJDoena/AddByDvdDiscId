@@ -8,9 +8,7 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
     using DVDProfilerXML.Version400.Localities;
     using Invelos.DVDProfilerPlugin;
 
-    [ComVisible(true)]
-    [Guid(ClassGuid.ClassID)]
-    public class Plugin : IDVDProfilerPlugin, IDVDProfilerPluginInfo
+    public partial class Plugin : IDVDProfilerPlugin
     {
         private const int AddMenuId = 1;
 
@@ -36,6 +34,8 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
 
         public Plugin()
         {
+            //System.Diagnostics.Debugger.Launch();
+
             _serviceProvider = new ServiceProvider();
 
             _applicationPath = IOServices.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Doena Soft", "AddByDvdDiscId");
@@ -140,36 +140,6 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
 
         #endregion
 
-        #region IDVDProfilerPluginInfo
-
-        public string GetName() => Texts.PluginName;
-
-        public string GetDescription() => Texts.PluginDescription;
-
-        public string GetAuthorName() => "Doena Soft.";
-
-        public string GetAuthorWebsite() => Texts.PluginUrl;
-
-        public int GetPluginAPIVersion() => PluginConstants.API_VERSION;
-
-        public int GetVersionMajor()
-        {
-            var version = System.Reflection.Assembly.GetAssembly(this.GetType()).GetName().Version;
-
-            return version.Major;
-        }
-
-        public int GetVersionMinor()
-        {
-            var version = System.Reflection.Assembly.GetAssembly(this.GetType()).GetName().Version;
-
-            var minor = version.Minor * 100 + version.Build * 10 + version.Revision;
-
-            return minor;
-        }
-
-        #endregion
-
         #endregion
 
         private void HandleMenuClick(int menuEventID)
@@ -211,38 +181,6 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
             return returnEx;
         }
 
-        #region Plugin Registering
-
-        [DllImport("user32.dll")]
-        public extern static int SetParent(int child, int parent);
-
-        [ComImport(), Guid("0002E005-0000-0000-C000-000000000046")]
-        internal class StdComponentCategoriesMgr { }
-
-        [ComRegisterFunction()]
-        public static void RegisterServer(Type _)
-        {
-            var cr = (CategoryRegistrar.ICatRegister)new StdComponentCategoriesMgr();
-
-            var clsidThis = new Guid(ClassGuid.ClassID);
-
-            var catid = new Guid("833F4274-5632-41DB-8FC5-BF3041CEA3F1");
-
-            cr.RegisterClassImplCategories(ref clsidThis, 1, new Guid[] { catid });
-        }
-
-        [ComUnregisterFunction()]
-        public static void UnregisterServer(Type _)
-        {
-            var cr = (CategoryRegistrar.ICatRegister)new StdComponentCategoriesMgr();
-
-            var clsidThis = new Guid(ClassGuid.ClassID);
-
-            var catid = new Guid("833F4274-5632-41DB-8FC5-BF3041CEA3F1");
-
-            cr.UnRegisterClassImplCategories(ref clsidThis, 1, new Guid[] { catid });
-        }
-
-        #endregion
+      
     }
 }
