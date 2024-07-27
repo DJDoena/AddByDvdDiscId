@@ -1,8 +1,8 @@
 [Setup]
 AppName=Add by DVD Disc ID
 AppId=AddByDvdDiscId
-AppVerName=Add by DVD Disc ID 1.0.0.4
-AppCopyright=Copyright © Doena Soft. 2021 - 2022
+AppVerName=Add by DVD Disc ID 1.0.0.5
+AppCopyright=Copyright © Doena Soft. 2021 - 2024
 AppPublisher=Doena Soft.
 AppPublisherURL=http://doena-journal.net/en/dvd-profiler-tools/
 DefaultDirName={commonpf32}\Doena Soft.\Add by DVD Disc ID
@@ -13,15 +13,15 @@ Compression=zip/9
 AppMutex=InvelosDVDPro
 OutputBaseFilename=AddByDvdDiscIdSetup
 OutputDir=..\..\..\..\AddByDvdDiscIdSetup\Setup\AddByDvdDiscId
-MinVersion=0,6.0
+MinVersion=0,6.1
 PrivilegesRequired=admin
 WizardStyle=modern
 DisableReadyPage=yes
 ShowLanguageDialog=no
 VersionInfoCompany=Doena Soft.
-VersionInfoCopyright=2021 - 2022
+VersionInfoCopyright=2021 - 2025
 VersionInfoDescription=Add by DVD Disc ID Setup
-VersionInfoVersion=1.0.0.4
+VersionInfoVersion=1.0.0.6
 UninstallDisplayIcon={app}\djdsoft.ico
 
 [Languages]
@@ -38,14 +38,24 @@ Source: "djdsoft.ico"; DestDir: "{app}"; Flags: ignoreversion
 
 Source: "AddByDvdDiscId.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "AddByDvdDiscId.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "DoenaSoft.CalculateDvdDiscId.dll"; DestDir: "{app}"; Flags: ignoreversion
 
-Source: "DoenaSoft.AbstractionLayer.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "DoenaSoft.DVDProfilerHelper.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "DoenaSoft.DVDProfilerXML.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "DoenaSoft.AbstractionLayer.IO.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "DoenaSoft.AbstractionLayer.UI.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "DoenaSoft.AbstractionLayer.Web.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "DoenaSoft.AbstractionLayer.WinForms.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "DoenaSoft.CalculateDvdDiscId.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "DoenaSoft.DVDProfiler.Helper.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "DoenaSoft.DVDProfiler.Xml.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "DoenaSoft.ToolBox.dll"; DestDir: "{app}"; Flags: ignoreversion
+
+Source: "System.Buffers.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "System.Memory.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "System.Numerics.Vectors.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "System.Resources.Extensions.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "System.Runtime.CompilerServices.Unsafe.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 Source: "de\AddByDvdDiscId.resources.dll"; DestDir: "{app}\de"; Flags: ignoreversion
-Source: "de\DoenaSoft.DVDProfilerHelper.resources.dll"; DestDir: "{app}\de"; Flags: ignoreversion
+Source: "de\DoenaSoft.DVDProfiler.Helper.resources.dll"; DestDir: "{app}\de"; Flags: ignoreversion
 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
@@ -55,7 +65,7 @@ Filename: "{win}\Microsoft.NET\Framework\v4.0.30319\RegAsm.exe"; Parameters: "/c
 ;[UninstallDelete]
 
 [UninstallRun]
-Filename: "{win}\Microsoft.NET\Framework\v4.0.30319\RegAsm.exe"; Parameters: "/u ""{app}\AddByDvdDiscId.dll"""; Flags: runhidden
+Filename: "{win}\Microsoft.NET\Framework\v4.0.30319\RegAsm.exe"; Parameters: "/u ""{app}\AddByDvdDiscId.dll"""; Flags: runhidden; RunOnceId: "UnregisterCOM"
 
 [Registry]
 ; Register - Cleanup ahead of time in case the user didn't uninstall the previous version.

@@ -1,16 +1,17 @@
-﻿namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
+using DoenaSoft.AbstractionLayer.IOServices;
+using DoenaSoft.CalculateDvdDiscId;
+using DoenaSoft.DVDProfiler.DVDProfilerXML.Version400.Localities;
+using Invelos.DVDProfilerPlugin;
+using UI = DoenaSoft.AbstractionLayer.UIServices;
+
+namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.IO;
-    using System.Linq;
-    using System.Windows.Forms;
-    using AbstractionLayer.IOServices;
-    using CalculateDvdDiscId;
-    using DVDProfilerXML.Version400.Localities;
-    using Invelos.DVDProfilerPlugin;
-    using UI = AbstractionLayer.UIServices;
 
     internal partial class MainForm : Form
     {
@@ -257,7 +258,7 @@
                 return;
             }
 
-            var videoFolder = this.IOServices.GetFolderInfo(this.IOServices.Path.Combine(drive.RootFolder, "VIDEO_TS"));
+            var videoFolder = this.IOServices.GetFolderInfo(this.IOServices.Path.Combine(drive.RootFolderName, "VIDEO_TS"));
 
             if (!videoFolder.Exists)
             {

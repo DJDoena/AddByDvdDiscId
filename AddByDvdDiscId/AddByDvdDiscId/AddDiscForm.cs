@@ -1,15 +1,15 @@
-﻿namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Windows.Forms;
-    using AbstractionLayer.IOServices;
-    using DVDProfilerXML.Version400.Localities;
-    using Invelos.DVDProfilerPlugin;
-    using UI = AbstractionLayer.UIServices;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using DoenaSoft.AbstractionLayer.IOServices;
+using DoenaSoft.DVDProfiler.DVDProfilerXML.Version400.Localities;
+using Invelos.DVDProfilerPlugin;
+using UI = DoenaSoft.AbstractionLayer.UIServices;
 
+namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
+{
     internal partial class AddDiscForm : Form
     {
         private readonly ServiceProvider _serviceProvider;
@@ -373,7 +373,7 @@
             {
                 try
                 {
-                    this.Api.GetDiscIDFromDrive(_drive.RootFolder, out _, out var isDualLayered);
+                    this.Api.GetDiscIDFromDrive(_drive.RootFolderName, out _, out var isDualLayered);
 
                     this.NewProfile.AddDisc("Main Feature", string.Empty, _drive.VolumeLabel, string.Empty, _discId, string.Empty, isDualLayered, false, string.Empty, string.Empty);
                 }

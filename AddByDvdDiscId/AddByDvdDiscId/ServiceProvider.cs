@@ -3,9 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using AbstractionLayer.IOServices;
-    using AbstractionLayer.IOServices.Implementations;
     using AbstractionLayer.UIServices;
-    using AbstractionLayer.UIServices.Implementations;
     using DVDProfilerXML.Version400.Localities;
     using Invelos.DVDProfilerPlugin;
 

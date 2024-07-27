@@ -10,7 +10,7 @@
     <AssemblyOriginatorKeyFile>AddByDvdDiscId.snk</AssemblyOriginatorKeyFile>
     <OutputType>Library</OutputType>
     <RootNamespace>DoenaSoft.DVDProfiler.AddByDvdDiscId</RootNamespace>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -133,14 +133,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DoenaSoft.AbstractionLayer">
-      <Version>2.0.6</Version>
+    <PackageReference Include="DoenaSoft.AbstractionLayer.IO">
+      <Version>2.0.9</Version>
+    </PackageReference>
+    <PackageReference Include="DoenaSoft.AbstractionLayer.UI">
+      <Version>1.0.6</Version>
     </PackageReference>
     <PackageReference Include="DoenaSoft.CalculateDvdDiscId">
       <Version>1.0.3</Version>
     </PackageReference>
-    <PackageReference Include="DoenaSoft.DVDProfilerXML">
-      <Version>4.1.6</Version>
+    <PackageReference Include="DoenaSoft.DVDProfiler.Xml">
+      <Version>5.0.8</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
