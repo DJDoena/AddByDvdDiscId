@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 using DoenaSoft.AbstractionLayer.IOServices;
 using DoenaSoft.AbstractionLayer.UIServices;
 using DoenaSoft.DVDProfiler.DVDProfilerHelper;
@@ -37,19 +38,26 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
         {
             //System.Diagnostics.Debugger.Launch();
 
-            _serviceProvider = new ServiceProvider();
+            try
+            {
+                _serviceProvider = new ServiceProvider();
 
-            _applicationPath = this.IOServices.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Doena Soft", "AddByDvdDiscId");
+                _applicationPath = this.IOServices.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Doena Soft", "AddByDvdDiscId");
 
-            _settingsFile = this.IOServices.Path.Combine(_applicationPath, "AddByDvdDiscId.xml");
+                _settingsFile = this.IOServices.Path.Combine(_applicationPath, "AddByDvdDiscId.xml");
 
-            _errorFile = this.IOServices.Path.Combine(Environment.GetEnvironmentVariable("TEMP"), "AddByDvdDiscId.xml");
+                _errorFile = this.IOServices.Path.Combine(Environment.GetEnvironmentVariable("TEMP"), "AddByDvdDiscId.xml");
 
-            _pluginVersion = System.Reflection.Assembly.GetAssembly(this.GetType()).GetName().Version;
+                _pluginVersion = System.Reflection.Assembly.GetAssembly(this.GetType()).GetName().Version;
 
-            var localities = Localities.Deserialize();
+                var localities = Localities.Deserialize();
 
-            _serviceProvider.Localities = localities?.Locality;
+                _serviceProvider.Localities = localities?.Locality;
+            }
+            catch (Exception ex)
+            {
+                this.ShowPluginLoadError(ex, "initialization");
+            }
         }
 
         #region I... Members
@@ -58,40 +66,47 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
 
         public void Load(IDVDProfilerAPI api)
         {
-            _serviceProvider.Api = api;
-
-            if (this.IOServices.Folder.Exists(_applicationPath) == false)
+            try
             {
-                this.IOServices.Folder.CreateFolder(_applicationPath);
-            }
+                _serviceProvider.Api = api;
 
-            if (this.IOServices.File.Exists(_settingsFile))
-            {
-                try
+                if (this.IOServices.Folder.Exists(_applicationPath) == false)
                 {
-                    _settings = Serializer<Settings>.Deserialize(_settingsFile);
+                    this.IOServices.Folder.CreateFolder(_applicationPath);
                 }
-                catch (Exception ex)
+
+                if (this.IOServices.File.Exists(_settingsFile))
                 {
-                    this.UIServices.ShowMessageBox(string.Format(MessageBoxTexts.FileCantBeRead, _settingsFile, ex.Message), MessageBoxTexts.ErrorHeader, Buttons.OK, Icon.Error);
+                    try
+                    {
+                        _settings = Serializer<Settings>.Deserialize(_settingsFile);
+                    }
+                    catch (Exception ex)
+                    {
+                        this.UIServices.ShowMessageBox(string.Format(MessageBoxTexts.FileCantBeRead, _settingsFile, ex.Message), MessageBoxTexts.ErrorHeader, Buttons.OK, Icon.Error);
+                    }
                 }
-            }
 
-            if (_settings == null)
+                if (_settings == null)
+                {
+                    _settings = new Settings();
+                }
+
+                if (_settings.DefaultValues == null)
+                {
+                    _settings.DefaultValues = new DefaultValues();
+                }
+
+                _serviceProvider.DefaultValues = _settings.DefaultValues;
+
+                this.Api.RegisterForEvent(PluginConstants.EVENTID_FormCreated);
+
+                _addMenuToken = this.Api.RegisterMenuItem(PluginConstants.FORMID_Main, PluginConstants.MENUID_Form, @"DVD", "Add by DVD Disc ID", AddMenuId);
+            }
+            catch (Exception ex)
             {
-                _settings = new Settings();
+                this.ShowPluginLoadError(ex, "loading");
             }
-
-            if (_settings.DefaultValues == null)
-            {
-                _settings.DefaultValues = new DefaultValues();
-            }
-
-            _serviceProvider.DefaultValues = _settings.DefaultValues;
-
-            this.Api.RegisterForEvent(PluginConstants.EVENTID_FormCreated);
-
-            _addMenuToken = this.Api.RegisterMenuItem(PluginConstants.FORMID_Main, PluginConstants.MENUID_Form, @"DVD", "Add by DVD Disc ID", AddMenuId);
         }
 
         public void Unload()
@@ -182,6 +197,18 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
             return returnEx;
         }
 
+        private void ShowPluginLoadError(Exception ex, string stage)
+        {
+            ex = this.WrapCOMException(ex);
 
+            MessageBox.Show($"{Texts.PluginName}: Error during {stage}: {ex.Message}");
+
+            try
+            {
+                this.LogException(ex);
+            }
+            catch
+            { }
+        }
     }
 }

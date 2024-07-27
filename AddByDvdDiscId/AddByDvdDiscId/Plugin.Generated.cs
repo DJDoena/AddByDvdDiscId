@@ -1,13 +1,9 @@
-﻿namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
-{
-    using System;
-    using System.Runtime.InteropServices;
-    using AbstractionLayer.IOServices;
-    using AbstractionLayer.UIServices;
-    using DVDProfilerHelper;
-    using DVDProfilerXML.Version400.Localities;
-    using Invelos.DVDProfilerPlugin;
+﻿using System;
+using System.Runtime.InteropServices;
+using Invelos.DVDProfilerPlugin;
 
+namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
+{
     [Guid(ClassGuid.ClassID), ComVisible(true)]
 
     public partial class Plugin : IDVDProfilerPluginInfo

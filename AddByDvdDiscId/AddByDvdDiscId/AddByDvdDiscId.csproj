@@ -1,154 +1,81 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <ProjectGuid>{95DA04B5-26D8-487E-BB29-779F231E43EB}</ProjectGuid>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ApplicationIcon>DJDSOFT.ICO</ApplicationIcon>
-    <AssemblyName>AddByDvdDiscId</AssemblyName>
-    <AssemblyOriginatorKeyFile>AddByDvdDiscId.snk</AssemblyOriginatorKeyFile>
-    <OutputType>Library</OutputType>
-    <RootNamespace>DoenaSoft.DVDProfiler.AddByDvdDiscId</RootNamespace>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x86\AddByDvdDiscId\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-    <RegisterForComInterop>true</RegisterForComInterop>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <OutputPath>bin\x86\AddByDvdDiscId\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <OutputPath>bin\x86\AddByDvdDiscId\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <BaseAddress>285212672</BaseAddress>
-    <Optimize>true</Optimize>
-    <FileAlignment>4096</FileAlignment>
-    <PlatformTarget>x86</PlatformTarget>
-    <DebugType>full</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.XML" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="..\..\PluginInterface\PluginInterface.5.cs">
-      <Link>PluginInterface.5.cs</Link>
-    </Compile>
-    <Compile Include="AddDiscForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddDiscForm.Designer.cs">
-      <DependentUpon>AddDiscForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ClassGuid.cs" />
-    <Compile Include="DefaultValues.cs" />
-    <Compile Include="DriveViewModel.cs" />
-    <Compile Include="LocalityViewModel.cs" />
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MessageBoxTexts.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MessageBoxTexts.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Plugin.cs" />
-    <Compile Include="Plugin.Generated.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ServiceProvider.cs" />
-    <Compile Include="Settings.cs" />
-    <Compile Include="Texts.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Texts.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="AddDiscForm.de.resx">
-      <DependentUpon>AddDiscForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddDiscForm.resx">
-      <DependentUpon>AddDiscForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.de.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MessageBoxTexts.de.resx">
-      <DependentUpon>MessageBoxTexts.resx</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MessageBoxTexts.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>MessageBoxTexts.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Texts.de.resx">
-      <DependentUpon>Texts.resx</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Texts.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Texts.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="AddByDvdDiscId.snk" />
-    <None Include="DJDSOFT.ICO">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="DoenaSoft.AbstractionLayer.IO">
-      <Version>2.0.9</Version>
-    </PackageReference>
-    <PackageReference Include="DoenaSoft.AbstractionLayer.UI">
-      <Version>1.0.6</Version>
-    </PackageReference>
-    <PackageReference Include="DoenaSoft.CalculateDvdDiscId">
-      <Version>1.0.3</Version>
-    </PackageReference>
-    <PackageReference Include="DoenaSoft.DVDProfiler.Xml">
-      <Version>5.0.8</Version>
-    </PackageReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>xcopy /y ..\..\..\..\djdsoft.ico .
-"%25ProgramFiles(x86)%25\Inno Setup 6\iscc.exe"  ..\..\..\..\AddByDvdDiscIdSetup\Setup.iss</PostBuildEvent>
-  </PropertyGroup>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net472</TargetFrameworks>
+		<UseWindowsForms>true</UseWindowsForms>
+		<Platforms>x86</Platforms>
+		<OutputType>Library</OutputType>
+		<RootNamespace>DoenaSoft.DVDProfiler.AddByDvdDiscId</RootNamespace>
+		<AssemblyName>AddByDvdDiscId</AssemblyName>
+		<SignAssembly>True</SignAssembly>
+		<AssemblyOriginatorKeyFile>AddByDvdDiscId.snk</AssemblyOriginatorKeyFile>
+		<Title>AddByDvdDiscId</Title>
+		<Company>Doena Soft.</Company>
+		<Authors>DJ Doena</Authors>
+		<Version>1.0.0.6</Version>
+		<FileVersion>1.0.0.6</FileVersion>
+		<EnableComHosting>true</EnableComHosting>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<EmbeddedResourceUseDependentUponConvention>true</EmbeddedResourceUseDependentUponConvention>
+		<Description>This plugin allows you to create a profile by DVD disc ID using the original algorithm.</Description>
+		<Copyright>Copyright © Doena Soft. 2021 - 2024</Copyright>
+		<Product>DVD Profiler Add by DVD Disc ID</Product>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Include="..\..\PluginInterface\PluginInterface.5.cs" Link="PluginInterface.5.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DoenaSoft.AbstractionLayer.IO" Version="2.0.9" />
+		<PackageReference Include="DoenaSoft.CalculateDvdDiscId" Version="1.0.5" />
+		<PackageReference Include="DoenaSoft.DVDProfiler.Xml" Version="5.0.10" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Properties\Resources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Texts.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Texts.resx</DependentUpon>
+		</Compile>
+		<Compile Update="MessageBoxTexts.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>MessageBoxTexts.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Plugin.Generated.cs">
+			<DependentUpon>Plugin.cs</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Properties\Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Texts.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Texts.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Texts.de.resx">
+			<DependentUpon>Texts.resx</DependentUpon>
+		</EmbeddedResource>
+		<EmbeddedResource Update="MessageBoxTexts.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>MessageBoxTexts.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="MessageBoxTexts.de.resx">
+			<DependentUpon>MessageBoxTexts.resx</DependentUpon>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="xcopy /y djdsoft.ico bin\$(Platform)\$(Configuration)\$(TargetFramework)&#xD;&#xA;&quot;%25ProgramFiles(x86)%25\Inno Setup 6\iscc.exe&quot; ..\AddByDvdDiscIdSetup\Setup.iss" />
+	</Target>
+
 </Project>
