@@ -12,7 +12,7 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
 {
     internal partial class AddDiscForm : Form
     {
-        private readonly ServiceProvider _serviceProvider;
+        private readonly IServiceProvider _serviceProvider;
 
         private readonly Locality _locality;
 
@@ -32,7 +32,7 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
 
         private DefaultValues DefaultValues => _serviceProvider.DefaultValues;
 
-        public AddDiscForm(ServiceProvider serviceProvider, Locality locality, string profileId, string discId, IDriveInfo drive, IDVDInfo parentProfile, IEnumerable<IDVDInfo> profiles, string formattedDiscId)
+        public AddDiscForm(IServiceProvider serviceProvider, Locality locality, string profileId, string discId, IDriveInfo drive, IDVDInfo parentProfile, IEnumerable<IDVDInfo> profiles, string formattedDiscId)
         {
             _serviceProvider = serviceProvider;
             _locality = locality;

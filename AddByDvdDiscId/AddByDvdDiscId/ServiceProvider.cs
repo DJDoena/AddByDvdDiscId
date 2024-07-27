@@ -1,13 +1,13 @@
-﻿namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
-{
-    using System.Collections.Generic;
-    using System.Linq;
-    using AbstractionLayer.IOServices;
-    using AbstractionLayer.UIServices;
-    using DVDProfilerXML.Version400.Localities;
-    using Invelos.DVDProfilerPlugin;
+﻿using System.Collections.Generic;
+using System.Linq;
+using DoenaSoft.AbstractionLayer.IOServices;
+using DoenaSoft.AbstractionLayer.UIServices;
+using DoenaSoft.DVDProfiler.DVDProfilerXML.Version400.Localities;
+using Invelos.DVDProfilerPlugin;
 
-    internal sealed class ServiceProvider
+namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
+{
+    internal sealed class ServiceProvider : IServiceProvider
     {
         private IEnumerable<Locality> _localities;
 
@@ -27,9 +27,9 @@
 
         public ServiceProvider()
         {
-            IOServices = new IOServices();
+            this.IOServices = new IOServices();
 
-            UIServices = new FormUIServices();
+            this.UIServices = new FormUIServices();
         }
     }
 }

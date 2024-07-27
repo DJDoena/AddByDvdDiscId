@@ -15,7 +15,7 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
 
     internal partial class MainForm : Form
     {
-        private readonly ServiceProvider _serviceProvider;
+        private readonly IServiceProvider _serviceProvider;
 
         private UI.IUIServices UIServices => _serviceProvider.UIServices;
 
@@ -31,7 +31,7 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
 
         private List<IDVDInfo> _allProfiles;
 
-        public MainForm(ServiceProvider serviceProvider)
+        public MainForm(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
 

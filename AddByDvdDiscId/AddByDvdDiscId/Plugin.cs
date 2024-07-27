@@ -14,7 +14,7 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
     {
         private const int AddMenuId = 1;
 
-        private readonly ServiceProvider _serviceProvider;
+        private readonly IServiceProvider _serviceProvider;
 
         private readonly string _errorFile;
 
@@ -28,11 +28,14 @@ namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
 
         private Settings _settings;
 
-        private IIOServices IOServices => _serviceProvider.IOServices;
+        private IIOServices IOServices 
+            => _serviceProvider.IOServices;
 
-        private IUIServices UIServices => _serviceProvider.UIServices;
+        private IUIServices UIServices 
+            => _serviceProvider.UIServices;
 
-        private IDVDProfilerAPI Api => _serviceProvider.Api;
+        private IDVDProfilerAPI Api 
+            => _serviceProvider.Api;
 
         public Plugin()
         {
