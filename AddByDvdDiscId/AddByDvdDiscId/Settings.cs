@@ -1,14 +1,13 @@
-namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
+using System;
+using System.Runtime.InteropServices;
+
+namespace DoenaSoft.DVDProfiler.AddByDvdDiscId;
+
+[ComVisible(false)]
+[Serializable]
+public class Settings
 {
-    using System;
-    using System.Runtime.InteropServices;
+    public string CurrentVersion;
 
-    [ComVisible(false)]
-    [Serializable]
-    public class Settings
-    {
-        public string CurrentVersion;
-
-        public DefaultValues DefaultValues;
-    }
+    public DefaultValues DefaultValues;
 }

@@ -1,20 +1,19 @@
-﻿namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
+﻿using System;
+using System.Runtime.InteropServices;
+
+namespace DoenaSoft.DVDProfiler.AddByDvdDiscId;
+
+[ComVisible(false)]
+[Serializable]
+public class DefaultValues
 {
-    using System;
-    using System.Runtime.InteropServices;
+    public int SelectedLocality;
 
-    [ComVisible(false)]
-    [Serializable]
-    public class DefaultValues
-    {
-        public int SelectedLocality;
+    public string SelectedDrive;
 
-        public string SelectedDrive;
+    public bool DownloadProfile = true;
 
-        public bool DownloadProfile = true;
+    public bool CreateDiscIdContent = true;
 
-        public bool CreateDiscIdContent = true;
-
-        public bool AddAsChild = false;
-    }
+    public bool AddAsChild = false;
 }

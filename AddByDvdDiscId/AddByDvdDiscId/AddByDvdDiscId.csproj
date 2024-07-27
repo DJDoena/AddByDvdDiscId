@@ -4,6 +4,7 @@
 		<TargetFrameworks>net472</TargetFrameworks>
 		<UseWindowsForms>true</UseWindowsForms>
 		<Platforms>x86</Platforms>
+		<LangVersion>10.0</LangVersion>
 		<OutputType>Library</OutputType>
 		<RootNamespace>DoenaSoft.DVDProfiler.AddByDvdDiscId</RootNamespace>
 		<AssemblyName>AddByDvdDiscId</AssemblyName>

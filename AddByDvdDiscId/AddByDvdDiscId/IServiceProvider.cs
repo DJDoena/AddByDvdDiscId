@@ -4,18 +4,17 @@ using DoenaSoft.AbstractionLayer.UIServices;
 using DoenaSoft.DVDProfiler.DVDProfilerXML.Version400.Localities;
 using Invelos.DVDProfilerPlugin;
 
-namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
+namespace DoenaSoft.DVDProfiler.AddByDvdDiscId;
+
+internal interface IServiceProvider
 {
-    internal interface IServiceProvider
-    {
-        IDVDProfilerAPI Api { get; set; }
+    IDVDProfilerAPI Api { get; set; }
 
-        DefaultValues DefaultValues { get; set; }
+    DefaultValues DefaultValues { get; set; }
 
-        IIOServices IOServices { get; }
+    IIOServices IOServices { get; }
 
-        IEnumerable<Locality> Localities { get; set; }
+    IEnumerable<Locality> Localities { get; set; }
 
-        IUIServices UIServices { get; }
-    }
+    IUIServices UIServices { get; }
 }

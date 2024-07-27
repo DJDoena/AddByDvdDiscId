@@ -1,22 +1,24 @@
-﻿namespace DoenaSoft.DVDProfiler.AddByDvdDiscId
+﻿using System.Diagnostics;
+using DoenaSoft.AbstractionLayer.IOServices;
+
+namespace DoenaSoft.DVDProfiler.AddByDvdDiscId;
+
+[DebuggerDisplay("{Description}")]
+internal sealed class DriveViewModel
 {
-    using System.Diagnostics;
-    using AbstractionLayer.IOServices;
+    public IDriveInfo Drive { get; }
 
-    [DebuggerDisplay("{Description}")]
-    internal sealed class DriveViewModel
+    public string Id
+        => this.Drive.DriveLetter;
+
+    public bool IsReady
+        => this.Drive.IsReady;
+
+    public string Description
+        => this.Drive.DriveLabel;
+
+    public DriveViewModel(IDriveInfo drive)
     {
-        public IDriveInfo Drive { get; }
-
-        public string Id => Drive.DriveLetter;
-
-        public bool IsReady => Drive.IsReady;
-
-        public string Description => Drive.DriveLabel;
-
-        public DriveViewModel(IDriveInfo drive)
-        {
-            Drive = drive;
-        }
+        this.Drive = drive;
     }
 }
