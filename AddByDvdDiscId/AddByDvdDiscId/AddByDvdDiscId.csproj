@@ -1,26 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net472</TargetFrameworks>
-		<UseWindowsForms>true</UseWindowsForms>
-		<Platforms>x86</Platforms>
-		<LangVersion>10.0</LangVersion>
-		<OutputType>Library</OutputType>
-		<RootNamespace>DoenaSoft.DVDProfiler.AddByDvdDiscId</RootNamespace>
 		<AssemblyName>AddByDvdDiscId</AssemblyName>
+		<RootNamespace>DoenaSoft.DVDProfiler.AddByDvdDiscId</RootNamespace>
+		<OutputType>Library</OutputType>
+		<TargetFrameworks>net472</TargetFrameworks>
+		<Platforms>x86</Platforms>
+		<UseWindowsForms>true</UseWindowsForms>
+		<EmbeddedResourceUseDependentUponConvention>true</EmbeddedResourceUseDependentUponConvention>
+		<LangVersion>10.0</LangVersion>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 		<SignAssembly>True</SignAssembly>
 		<AssemblyOriginatorKeyFile>AddByDvdDiscId.snk</AssemblyOriginatorKeyFile>
 		<Title>AddByDvdDiscId</Title>
+		<Product>DVD Profiler Add by DVD Disc ID</Product>
+		<Description>This plugin allows you to create a profile by DVD disc ID using the original algorithm.</Description>
 		<Company>Doena Soft.</Company>
 		<Authors>DJ Doena</Authors>
+		<Copyright>Copyright © Doena Soft. 2021 - 2024</Copyright>
 		<Version>1.0.0.6</Version>
 		<FileVersion>1.0.0.6</FileVersion>
 		<EnableComHosting>true</EnableComHosting>	
-		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-		<EmbeddedResourceUseDependentUponConvention>true</EmbeddedResourceUseDependentUponConvention>
-		<Description>This plugin allows you to create a profile by DVD disc ID using the original algorithm.</Description>
-		<Copyright>Copyright © Doena Soft. 2021 - 2024</Copyright>
-		<Product>DVD Profiler Add by DVD Disc ID</Product>
 	</PropertyGroup>
 
 	<ItemGroup>
