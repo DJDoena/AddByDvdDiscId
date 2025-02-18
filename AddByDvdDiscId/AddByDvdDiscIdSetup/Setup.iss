@@ -36,26 +36,10 @@ Name: "full"; Description: "Full installation"
 [Files]
 Source: "djdsoft.ico"; DestDir: "{app}"; Flags: ignoreversion
 
-Source: "AddByDvdDiscId.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "AddByDvdDiscId.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "*.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "*.pdb"; DestDir: "{app}"; Flags: ignoreversion
 
-Source: "DoenaSoft.AbstractionLayer.IO.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "DoenaSoft.AbstractionLayer.UI.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "DoenaSoft.AbstractionLayer.Web.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "DoenaSoft.AbstractionLayer.WinForms.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "DoenaSoft.CalculateDvdDiscId.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "DoenaSoft.DVDProfiler.Helper.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "DoenaSoft.DVDProfiler.Xml.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "DoenaSoft.ToolBox.dll"; DestDir: "{app}"; Flags: ignoreversion
-
-Source: "System.Buffers.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "System.Memory.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "System.Numerics.Vectors.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "System.Resources.Extensions.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "System.Runtime.CompilerServices.Unsafe.dll"; DestDir: "{app}"; Flags: ignoreversion
-
-Source: "de\AddByDvdDiscId.resources.dll"; DestDir: "{app}\de"; Flags: ignoreversion
-Source: "de\DoenaSoft.DVDProfiler.Helper.resources.dll"; DestDir: "{app}\de"; Flags: ignoreversion
+Source: "de\*.dll"; DestDir: "{app}\de"; Flags: ignoreversion
 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 

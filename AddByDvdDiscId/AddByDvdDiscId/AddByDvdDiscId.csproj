@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<AssemblyName>AddByDvdDiscId</AssemblyName>
+		<AssemblyName>DoenaSoft.AddByDvdDiscId</AssemblyName>
 		<RootNamespace>DoenaSoft.DVDProfiler.AddByDvdDiscId</RootNamespace>
 		<OutputType>Library</OutputType>
 		<TargetFrameworks>net472</TargetFrameworks>
