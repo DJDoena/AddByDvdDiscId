@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using DoenaSoft.AbstractionLayer.IOServices;
 using DoenaSoft.AbstractionLayer.UIServices;
 using DoenaSoft.DVDProfiler.DVDProfilerHelper;
+using DoenaSoft.DVDProfiler.DVDProfilerXML;
 using DoenaSoft.DVDProfiler.DVDProfilerXML.Version400.Localities;
 using DoenaSoft.ToolBox.Generics;
 using Invelos.DVDProfilerPlugin;
@@ -28,14 +29,19 @@ public partial class Plugin : IDVDProfilerPlugin
 
     private Settings _settings;
 
-    private IIOServices IOServices 
+    private IIOServices IOServices
         => _serviceProvider.IOServices;
 
-    private IUIServices UIServices 
+    private IUIServices UIServices
         => _serviceProvider.UIServices;
 
-    private IDVDProfilerAPI Api 
+    private IDVDProfilerAPI Api
         => _serviceProvider.Api;
+
+    static Plugin()
+    {
+        DVDProfilerXMLAssemblyLoader.Load();
+    }
 
     public Plugin()
     {
@@ -82,7 +88,7 @@ public partial class Plugin : IDVDProfilerPlugin
             {
                 try
                 {
-                    _settings = Serializer<Settings>.Deserialize(_settingsFile);
+                    _settings = XmlSerializer<Settings>.Deserialize(_settingsFile);
                 }
                 catch (Exception ex)
                 {
@@ -118,7 +124,7 @@ public partial class Plugin : IDVDProfilerPlugin
 
         try
         {
-            Serializer<Settings>.Serialize(_settingsFile, _settings);
+            XmlSerializer<Settings>.Serialize(_settingsFile, _settings);
         }
         catch (Exception ex)
         {
@@ -183,7 +189,7 @@ public partial class Plugin : IDVDProfilerPlugin
 
         var exceptionXml = new ExceptionXml(ex);
 
-        Serializer<ExceptionXml>.Serialize(_errorFile, exceptionXml);
+        XmlSerializer<ExceptionXml>.Serialize(_errorFile, exceptionXml);
     }
 
     private Exception WrapCOMException(Exception ex)

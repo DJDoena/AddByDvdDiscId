@@ -17,9 +17,9 @@
 		<Description>This plugin allows you to create a profile by DVD disc ID using the original algorithm.</Description>
 		<Company>Doena Soft.</Company>
 		<Authors>DJ Doena</Authors>
-		<Copyright>Copyright © Doena Soft. 2021 - 2024</Copyright>
-		<Version>1.0.0.6</Version>
-		<FileVersion>1.0.0.6</FileVersion>
+		<Copyright>Copyright © Doena Soft. 2021 - 2025</Copyright>
+		<Version>1.0.1</Version>
+		<FileVersion>1.0.1</FileVersion>
 		<EnableComHosting>true</EnableComHosting>	
 	</PropertyGroup>
 
@@ -30,7 +30,7 @@
 	<ItemGroup>
 		<PackageReference Include="DoenaSoft.AbstractionLayer.IO" Version="2.0.9" />
 		<PackageReference Include="DoenaSoft.CalculateDvdDiscId" Version="1.0.5" />
-		<PackageReference Include="DoenaSoft.DVDProfiler.Xml" Version="5.0.10" />
+		<PackageReference Include="DoenaSoft.DVDProfiler.Xml" Version="5.0.11" />
 	</ItemGroup>
 
 	<ItemGroup>
