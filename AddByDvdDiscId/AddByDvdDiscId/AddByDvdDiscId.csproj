@@ -28,7 +28,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="DoenaSoft.AbstractionLayer.IO" Version="2.0.9" />
+		<PackageReference Include="DoenaSoft.AbstractionLayer.IO" Version="3.0.1" />
 		<PackageReference Include="DoenaSoft.CalculateDvdDiscId" Version="1.0.5" />
 		<PackageReference Include="DoenaSoft.DVDProfiler.Xml" Version="5.0.11" />
 	</ItemGroup>

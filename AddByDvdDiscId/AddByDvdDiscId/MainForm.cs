@@ -72,7 +72,7 @@ internal partial class MainForm : Form
         IEnumerable<IDriveInfo> drives;
         try
         {
-            drives = this.IOServices.GetDriveInfos(DriveType.CDRom);
+            drives = this.IOServices.GetDrives(DriveType.CDRom);
         }
         catch
         {
@@ -262,7 +262,7 @@ internal partial class MainForm : Form
             return;
         }
 
-        var videoFolder = this.IOServices.GetFolderInfo(this.IOServices.Path.Combine(drive.RootFolderName, "VIDEO_TS"));
+        var videoFolder = this.IOServices.GetFolder(this.IOServices.Path.Combine(drive.RootFolderName, "VIDEO_TS"));
 
         if (!videoFolder.Exists)
         {
