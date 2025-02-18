@@ -82,7 +82,7 @@
 	</ItemGroup>
 
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="IF &quot;$(Configuration)&quot;==&quot;Debug&quot; (&#xD;&#xA;  &quot;C:\Windows\Microsoft.NET\Framework\v4.0.30319\RegAsm.exe&quot; /codebase &quot;bin\$(Platform)\$(Configuration)\$(TargetFramework)\AddByDvdDiscId.dll&quot;&#xD;&#xA;) ELSE (&#xD;&#xA;  rem xcopy /y djdsoft.ico bin\$(Platform)\$(Configuration)\$(TargetFramework)&#xD;&#xA;  &quot;%25ProgramFiles(x86)%25\Inno Setup 6\iscc.exe&quot; ..\AddByDvdDiscIdSetup\Setup.iss&#xD;&#xA;)" />
+		<Exec Command="IF &quot;$(Configuration)&quot;==&quot;Debug&quot; (&#xD;&#xA;  &quot;C:\Windows\Microsoft.NET\Framework\v4.0.30319\RegAsm.exe&quot; /codebase &quot;bin\$(Platform)\$(Configuration)\$(TargetFramework)\DoenaSoft.AddByDvdDiscId.dll&quot;&#xD;&#xA;) ELSE (&#xD;&#xA;  rem xcopy /y djdsoft.ico bin\$(Platform)\$(Configuration)\$(TargetFramework)&#xD;&#xA;  &quot;%25ProgramFiles(x86)%25\Inno Setup 6\iscc.exe&quot; ..\AddByDvdDiscIdSetup\Setup.iss&#xD;&#xA;)" />
 	</Target>
 
 </Project>
