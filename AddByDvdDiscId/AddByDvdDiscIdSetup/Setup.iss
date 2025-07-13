@@ -44,12 +44,12 @@ Source: "de\*.dll"; DestDir: "{app}\de"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Run]
-Filename: "{win}\Microsoft.NET\Framework\v4.0.30319\RegAsm.exe"; Parameters: "/codebase ""{app}\AddByDvdDiscId.dll"""; Flags: runhidden
+Filename: "{win}\Microsoft.NET\Framework\v4.0.30319\RegAsm.exe"; Parameters: "/codebase ""{app}\DoenaSoft.AddByDvdDiscId.dll"""; Flags: runhidden
 
 ;[UninstallDelete]
 
 [UninstallRun]
-Filename: "{win}\Microsoft.NET\Framework\v4.0.30319\RegAsm.exe"; Parameters: "/u ""{app}\AddByDvdDiscId.dll"""; Flags: runhidden; RunOnceId: "UnregisterCOM"
+Filename: "{win}\Microsoft.NET\Framework\v4.0.30319\RegAsm.exe"; Parameters: "/u ""{app}\DoenaSoft.AddByDvdDiscId.dll"""; Flags: runhidden; RunOnceId: "UnregisterCOM"
 
 [Registry]
 ; Register - Cleanup ahead of time in case the user didn't uninstall the previous version.
